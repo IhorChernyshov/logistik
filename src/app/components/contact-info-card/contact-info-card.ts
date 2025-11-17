@@ -30,8 +30,8 @@ export class ContactInfoCardComponent {
     });
   }
 
-  // Returns appropriate icon class based on type
-  getIconClass(): string {
-    return this.type() === 'email' ? 'fa-solid fa-envelope' : 'fa-solid fa-location-dot';
+  // Returns appropriate icon URL based on type
+  getIconUrl(): string {
+    return this.type() === 'email' ? '/icons/mail.svg' : '/icons/geo.svg';
   }
 }

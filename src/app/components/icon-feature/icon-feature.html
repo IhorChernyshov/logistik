@@ -1,6 +1,10 @@
 <article class="icon-feature">
   <div class="icon-feature__icon">
-    <i [class]="iconClass()"></i>
+    @if (iconUrl()) {
+      <img [src]="iconUrl()" [alt]="title()" class="icon-feature__icon-img">
+    } @else {
+      <i [class]="iconClass()"></i>
+    }
   </div>
 
   <div class="icon-feature__content">

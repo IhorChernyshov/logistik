@@ -9,7 +9,10 @@ import { CommonModule } from '@angular/common';
 })
 export class IconFeatureComponent {
   // Icon class (e.g., "fa-solid fa-truck", or custom icon class)
-  iconClass = input.required<string>();
+  iconClass = input<string>('');
+
+  // Icon URL for SVG image (alternative to iconClass)
+  iconUrl = input<string>('');
 
   // Feature title text
   title = input.required<string>();

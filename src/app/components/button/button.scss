@@ -42,17 +42,17 @@
     }
   }
 
-  // Outline modifier - transparent with border
+  // Outline modifier - transparent with border (white on dark header)
   &--outline {
     background: transparent;
-    color: $navyDark;
-    border-color: $navyDark;
+    color: $white;
+    border-color: $white;
 
     &:hover:not(.button--disabled) {
-      background: $navyDark;
-      color: $white;
+      background: $white;
+      color: $navyDark;
       transform: translateY(to-rem(-2));
-      box-shadow: 0 to-rem(4) to-rem(12) rgba($navyDark, 0.3);
+      box-shadow: 0 to-rem(4) to-rem(12) rgba($white, 0.3);
     }
 
     &:active:not(.button--disabled) {

@@ -1,6 +1,6 @@
 <article class="contact-info-card">
   <div class="contact-info-card__icon-wrapper">
-    <i [class]="getIconClass()" class="contact-info-card__icon"></i>
+    <img [src]="getIconUrl()" [alt]="type()" class="contact-info-card__icon-img">
   </div>
 
   <div class="contact-info-card__content">
@@ -17,7 +17,7 @@
     @if (copied()) {
       <i class="fa-solid fa-check"></i>
     } @else {
-      <i class="fa-regular fa-copy"></i>
+      <img src="/icons/copy.svg" alt="Copy" class="contact-info-card__copy-icon">
     }
   </button>
 </article>

@@ -23,6 +23,12 @@
     }
   }
 
+  &__icon-img {
+    width: 70%;
+    height: 70%;
+    object-fit: contain;
+  }
+
   &__content {
     flex: 1;
     display: flex;

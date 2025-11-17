@@ -5,7 +5,7 @@ import { ScrollAnimateDirective } from '../../../directives/scroll-animate.direc
 
 // Feature data interface
 interface FeatureData {
-  iconClass: string;
+  iconUrl: string;
   title: string;
   description: string;
 }
@@ -32,17 +32,17 @@ export class DirectEmployerComponent {
   // Features array
   features = signal<FeatureData[]>([
     {
-      iconClass: 'fa-solid fa-warehouse',
+      iconUrl: '/icons/lift-car.svg',
       title: 'Lagerarbeiter',
       description: 'Annahme und Entladung von Waren. Sortierung, Etikettierung und Einlagerung im Lager. Kommissionierung und Vorbereitung von Bestellungen für den Versand.',
     },
     {
-      iconClass: 'fa-solid fa-truck',
+      iconUrl: '/icons/truck.svg',
       title: 'Fahrer',
       description: 'Lieferung von Waren und Materialien an die vorgesehenen Standorte. Kontrolle des technischen Zustands des Fahrzeugs. Betankung und kleinere Wartungsarbeiten. Verantwortung für die pünktliche und sichere Lieferung.',
     },
     {
-      iconClass: 'fa-solid fa-hand-holding-hand',
+      iconUrl: '/icons/scan barcode.svg',
       title: 'Hilfsarbeiter',
       description: 'Ausführung einfacher Hilfstätigkeiten in Produktion, Lager oder Bau. Unterstützung von Facharbeitern bei verschiedenen Aufgaben. Tätigkeiten wie Tragen, Verpacken, Reinigen oder Vorbereiten von Materialien.',
     },

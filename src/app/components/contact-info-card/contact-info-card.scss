@@ -35,6 +35,12 @@
     @include adaptiveValue("font-size", 20, 18);
   }
 
+  &__icon-img {
+    width: 60%;
+    height: 60%;
+    object-fit: contain;
+  }
+
   &__content {
     flex: 1;
     min-width: 0;
@@ -67,7 +73,16 @@
       @include adaptiveValue("font-size", 16, 14);
     }
 
+    img {
+      @include adaptiveValue("width", 16, 14);
+      @include adaptiveValue("height", 16, 14);
+      object-fit: contain;
+    }
+
     &:hover:not(&--copied) {
+      img {
+        filter: brightness(0) invert(1);
+      }
       background: $navyDark;
       border-color: $navyDark;
       color: $white;

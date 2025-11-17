@@ -6,8 +6,8 @@
   top: 0;
   left: 0;
   right: 0;
-  background: $white;
-  border-bottom: to-rem(1) solid rgba($navyDark, 0.1);
+  background: $navyDark;
+  border-bottom: to-rem(1) solid rgba($white, 0.1);
   z-index: 100;
   @include adaptiveValue("padding-top", 20, 16);
   @include adaptiveValue("padding-bottom", 20, 16);
@@ -26,13 +26,24 @@
     text-decoration: none;
     display: flex;
     align-items: center;
+    gap: to-rem(12);
     z-index: 102;
+  }
+
+  &__logo-img {
+    height: to-rem(40);
+    width: auto;
+    object-fit: contain;
+
+    @media (max-width: to-rem(480)) {
+      height: to-rem(32);
+    }
   }
 
   &__logo-text {
     font-family: $RB;
     font-weight: 700;
-    color: $navyDark;
+    color: $white;
     white-space: nowrap;
     @include adaptiveValue("font-size", 20, 16);
 
@@ -55,13 +66,13 @@
       width: 100%;
       max-width: to-rem(400);
       height: 100vh;
-      background: $white;
+      background: $navyDark;
       flex-direction: column;
       justify-content: center;
       align-items: center;
       transition: right 0.3s ease;
       z-index: 101;
-      box-shadow: to-rem(-4) 0 to-rem(20) rgba($navyDark, 0.1);
+      box-shadow: to-rem(-4) 0 to-rem(20) rgba(0, 0, 0, 0.3);
     }
 
     &--open {
@@ -90,7 +101,7 @@
   &__menu-link {
     font-family: $RM;
     font-weight: 500;
-    color: $textDark;
+    color: $white;
     text-decoration: none;
     transition: color 0.3s ease;
     position: relative;
@@ -103,12 +114,12 @@
       bottom: to-rem(-4);
       width: 0;
       height: to-rem(2);
-      background: $navyDark;
+      background: $white;
       transition: width 0.3s ease;
     }
 
     &:hover {
-      color: $navyDark;
+      color: rgba($white, 0.8);
 
       &::after {
         width: 100%;
@@ -145,7 +156,7 @@
     &-line {
       width: 100%;
       height: to-rem(2);
-      background: $navyDark;
+      background: $white;
       transition: all 0.3s ease;
       border-radius: to-rem(2);
     }

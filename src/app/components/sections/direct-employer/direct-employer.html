@@ -9,7 +9,7 @@
       <div class="direct-employer__features" appScrollAnimate>
         @for (feature of features(); track feature.title) {
           <app-icon-feature
-            [iconClass]="feature.iconClass"
+            [iconUrl]="feature.iconUrl"
             [title]="feature.title"
             [description]="feature.description"
           />
