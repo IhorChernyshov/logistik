@@ -1,0 +1,23 @@
+<article class="contact-info-card">
+  <div class="contact-info-card__icon-wrapper">
+    <i [class]="getIconClass()" class="contact-info-card__icon"></i>
+  </div>
+
+  <div class="contact-info-card__content">
+    <p class="contact-info-card__text">{{ info() }}</p>
+  </div>
+
+  <button
+    type="button"
+    class="contact-info-card__copy-btn"
+    [class.contact-info-card__copy-btn--copied]="copied()"
+    (click)="copyToClipboard()"
+    [title]="copied() ? 'Copied!' : 'Copy to clipboard'"
+  >
+    @if (copied()) {
+      <i class="fa-solid fa-check"></i>
+    } @else {
+      <i class="fa-regular fa-copy"></i>
+    }
+  </button>
+</article>

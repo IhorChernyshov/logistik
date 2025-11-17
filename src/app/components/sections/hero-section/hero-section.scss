@@ -1,0 +1,64 @@
+@use '../../../../assets/style/base/mixins' as *;
+@use '../../../../assets/style/base/shared' as *;
+
+.hero-section {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  &__overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(to bottom, rgba($navyDark, 0.6) 0%, rgba($navyDark, 0.8) 100%);
+    z-index: 1;
+  }
+
+  &__container {
+    position: relative;
+    max-width: to-rem(1440);
+    margin: 0 auto;
+    width: 100%;
+    z-index: 2;
+    @include adaptiveValue("padding-left", 40, 20);
+    @include adaptiveValue("padding-right", 40, 20);
+  }
+
+  &__content {
+    max-width: to-rem(800);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    @include adaptiveValue("gap", 24, 20);
+  }
+
+  &__title {
+    font-family: $MExt;
+    font-weight: 800;
+    color: $white;
+    line-height: 1.2;
+    margin: 0;
+    @include adaptiveValue("font-size", 56, 36);
+  }
+
+  &__subtitle {
+    font-family: $R;
+    font-weight: 400;
+    color: rgba($white, 0.9);
+    line-height: 1.6;
+    margin: 0;
+    @include adaptiveValue("font-size", 18, 16);
+  }
+
+  &__cta {
+    @include adaptiveValue("margin-top", 16, 12);
+  }
+}

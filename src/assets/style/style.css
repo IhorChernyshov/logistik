@@ -1,0 +1,210 @@
+/*@charset "UTF-8";*/
+/*!*@import url("https://fonts.googleapis.com/css2?family=Oswald&display=swap");*!*/
+/*!*@import url("https://fonts.googleapis.com/css2?family=Oswald&display=swap");*!*/
+/*!*@import url("https://fonts.googleapis.com/css2?family=Italiana&display=swap");*!*/
+/*!*@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap");*!*/
+/*!*@import url("https://fonts.googleapis.com/css2?family=Montserrat&display=swap");*!*/
+/*!*@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap");*!*/
+/*@font-face {*/
+/*  font-family: "icons";*/
+/*  src: url("../fonts/icons.eot?hk9eqe");*/
+/*  src: url("../fonts/icons.eot?hk9eqe#iefix") format("embedded-opentype"), url("../fonts/icons.ttf?hk9eqe") format("truetype"), url("../fonts/icons.woff?hk9eqe") format("woff"), url("../fonts/icons.svg?hk9eqe#icons") format("svg");*/
+/*  font-weight: normal;*/
+/*  font-style: normal;*/
+/*  font-display: block;*/
+/*}*/
+/*[class^=_icon-], [class*=" _icon-"] {*/
+/*  !* use !important to prevent issues with browser extensions that change fonts *!*/
+/*  font-family: "icons" !important;*/
+/*  speak: never;*/
+/*  font-style: normal;*/
+/*  font-weight: normal;*/
+/*  font-variant: normal;*/
+/*  text-transform: none;*/
+/*  line-height: 1;*/
+/*  !* Better Font Rendering =========== *!*/
+/*  -webkit-font-smoothing: antialiased;*/
+/*  -moz-osx-font-smoothing: grayscale;*/
+/*}*/
+
+/*._icon-trolley:before {*/
+/*  content: "\e908";*/
+/*  color: #fff;*/
+/*}*/
+
+/*._icon-like:before {*/
+/*  content: "\e909";*/
+/*}*/
+
+/*._icon-share:before {*/
+/*  content: "\e90a";*/
+/*}*/
+
+/*._icon-play:before {*/
+/*  content: "\e905";*/
+/*}*/
+
+/*._icon-s-medium:before {*/
+/*  content: "\e902";*/
+/*}*/
+
+/*._icon-s-inst:before {*/
+/*  content: "\e903";*/
+/*}*/
+
+/*._icon-clock:before {*/
+/*  content: "\e906";*/
+/*}*/
+
+/*._icon-map:before {*/
+/*  content: "\e907";*/
+/*}*/
+
+/*._icon-s-tiktok:before {*/
+/*  content: "\e901";*/
+/*}*/
+
+/*._icon-sl-arrow:before {*/
+/*  content: "\e904";*/
+/*}*/
+
+/*._icon-s-twit:before {*/
+/*  content: "\e900";*/
+/*}*/
+
+/** {*/
+/*  padding: 0px;*/
+/*  margin: 0px;*/
+/*  border: 0px;*/
+/*}*/
+
+/**,*/
+/**:before,*/
+/**:after {*/
+/*  -moz-box-sizing: border-box;*/
+/*  -webkit-box-sizing: border-box;*/
+/*  box-sizing: border-box;*/
+/*}*/
+
+/*html,*/
+/*body {*/
+/*  height: 100%;*/
+/*  min-width: 320px;*/
+/*}*/
+
+/*body {*/
+/*  line-height: 1;*/
+/*  font-family: "Open Sans", sans-serif;*/
+/*  font-size: 1.0625rem;*/
+/*  -ms-text-size-adjust: 100%;*/
+/*  -moz-text-size-adjust: 100%;*/
+/*  -webkit-text-size-adjust: 100%;*/
+/*  -webkit-font-smoothing: antialiased;*/
+/*}*/
+
+/*input,*/
+/*button,*/
+/*textarea {*/
+/*  font-family: "Open Sans", sans-serif;*/
+/*  font-size: inherit;*/
+/*}*/
+
+/*button {*/
+/*  cursor: pointer;*/
+/*  color: inherit;*/
+/*  background-color: inherit;*/
+/*}*/
+
+/*a {*/
+/*  color: inherit;*/
+/*}*/
+
+/*a:link,*/
+/*a:visited {*/
+/*  text-decoration: none;*/
+/*}*/
+
+/*a:hover {*/
+/*  text-decoration: none;*/
+/*}*/
+
+/*ul li {*/
+/*  list-style: none;*/
+/*}*/
+
+/*img {*/
+/*  vertical-align: top;*/
+/*}*/
+
+/*h1,*/
+/*h2,*/
+/*h3,*/
+/*h4,*/
+/*h5,*/
+/*h6 {*/
+/*  font-weight: inherit;*/
+/*  font-size: inherit;*/
+/*}*/
+
+/*body {*/
+/*  color: #222220;*/
+/*  background-color: #efe9dd;*/
+/*}*/
+/*.lock body {*/
+/*  overflow: hidden;*/
+/*  touch-action: none;*/
+/*}*/
+
+/*.wrapper {*/
+/*  min-height: 100%;*/
+/*  display: flex;*/
+/*  flex-direction: column;*/
+/*  overflow: hidden;*/
+/*}*/
+/*.wrapper > main {*/
+/*  flex: 1 1 auto;*/
+/*}*/
+/*.wrapper > * {*/
+/*  min-width: 0;*/
+/*}*/
+
+/*!**/
+/*(i) Стили будут применяться ко*/
+/*всем классам содержащим *__container*/
+/*Например header__container, main__container и т.д.*/
+/*Снипет (HTML): cnt*/
+/**!*/
+/*[class*=__container] {*/
+/*  max-width: 98.25rem;*/
+/*  margin: 0 auto;*/
+/*  padding: 0rem 0.9375rem;*/
+/*}*/
+
+/*[class*=__container-big] {*/
+/*  max-width: 98.25rem;*/
+/*  box-sizing: content-box;*/
+/*  margin: 0 auto;*/
+/*  padding: 0 0.9375rem;*/
+/*}*/
+
+/*[class*=__container_wide] {*/
+/*  max-width: 105rem;*/
+/*}*/
+
+/*[class*=-ibg] {*/
+/*  position: relative;*/
+/*}*/
+/*[class*=-ibg] img {*/
+/*  position: absolute;*/
+/*  width: 100%;*/
+/*  height: 100%;*/
+/*  top: 0;*/
+/*  left: 0;*/
+/*  object-fit: cover;*/
+/*}*/
+
+/*[class*=-ibg_contain] img {*/
+/*  object-fit: contain;*/
+/*}*/
+
+/*!*# sourceMappingURL=style.css.map *!*/

@@ -1,0 +1,45 @@
+@use '../../../../assets/style/base/mixins' as *;
+@use '../../../../assets/style/base/shared' as *;
+
+.why-choose-us {
+  background: $grayLight;
+  @include adaptiveValue("padding-top", 80, 60);
+  @include adaptiveValue("padding-bottom", 80, 60);
+
+  &__container {
+    max-width: to-rem(1440);
+    margin: 0 auto;
+    @include adaptiveValue("padding-left", 40, 20);
+    @include adaptiveValue("padding-right", 40, 20);
+  }
+
+  &__header {
+    text-align: center;
+    @include adaptiveValue("margin-bottom", 60, 40);
+  }
+
+  &__title {
+    font-family: $MExt;
+    font-weight: 800;
+    color: $textDark;
+    line-height: 1.3;
+    margin: 0;
+    @include adaptiveValue("font-size", 42, 32);
+    @include adaptiveValue("margin-bottom", 16, 12);
+  }
+
+  &__subtitle {
+    font-family: $R;
+    font-weight: 400;
+    color: $textGray;
+    margin: 0;
+    @include adaptiveValue("font-size", 18, 16);
+  }
+
+  &__cards {
+    display: flex;
+    flex-direction: column;
+    max-width: to-rem(900);
+    margin: 0 auto;
+  }
+}

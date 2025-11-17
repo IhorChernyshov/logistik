@@ -1,0 +1,153 @@
+@use '../../../assets/style/style' as *;
+@use '../../../assets/style/blocks/technology' as *;
+@use '../../../assets/style/base/mixins' as *;
+@use '../../../assets/style/base/shared' as *;
+
+.core-slider {
+  border-bottom: to-rem(1) solid $blockLine;
+  @include adaptiveValue("padding-block-start", 100, 40);
+  @include adaptiveValue("padding-block-end", 110, 40);
+  /* .core-slider__container */
+  &__container {
+    @include adaptiveValue("padding-left", 50, 15, 1540, 767.98);
+    @include adaptiveValue("padding-right", 50, 15, 1540, 767.98);
+  }
+
+  /* .core-slider__title-box */
+  &__title-box {
+    @include adaptiveValue("margin-bottom", 55, 30);
+  }
+}
+
+
+.slider {
+  /* .slider__list */
+  &__list {
+    display: grid;
+    grid-template-columns: 1fr;
+    & > * {
+      grid-column: 1 / -1;
+      grid-row: 1 / -1;
+    }
+  }
+
+  /* .slider__item */
+  &__item {
+    position: relative;
+    max-width: 100%;
+    z-index: 2;
+    //min-height: to-rem(865);
+    //min-height: 60svh;
+    display: flex;
+    align-items: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.5s ease-in-out, visibility 0.5s ease-in-out;
+    @include adaptiveValue("padding-top", 180, 0);
+    @include adaptiveValue("padding-bottom", 180, 30);
+    @include adaptiveValue("padding-right", 40, 15);
+    @include adaptiveValue("padding-left", 40, 15);
+    &::after {
+      content: '';
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      background-color: rgba(0, 0, 0, 0.23);
+      border-radius: to-rem(25) to-rem(25) to-rem(0) to-rem(0);
+    }
+    &.active {
+      opacity: 1;
+      visibility: visible;
+      z-index: 2;
+
+      .target-block__body {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
+    @media (max-width: $tablet) {
+      max-width: 100%;
+      max-height: 100%;
+      min-height: unset;
+      align-items: flex-start;
+    }
+
+    &--neural{
+      @include adaptiveValue("padding-top", 300, 0);
+      @include adaptiveValue("padding-bottom", 110, 30);
+    }
+  }
+
+}
+
+.target-block {
+  /* .target-block__body */
+  &__body {
+    /* .target-block__body--udo */
+    &--udo {
+      padding-top: 0;
+    }
+  }
+}
+
+.pag {
+  position: relative;
+  z-index: 10;
+  /* .pag__body */
+  &__body {
+    width: 100%;
+    overflow: hidden;
+  }
+
+  /* .pag__list */
+  &__list {
+    display: flex;
+    overflow: auto;
+  }
+
+  /* .pag__item */
+  &__item {
+    display: flex;
+    flex: 1;
+    border-top: to-rem(1) solid $sliderBorder;
+    border-right: to-rem(1) solid $sliderBorder;
+    border-bottom: to-rem(1) solid $sliderBorder;
+    &:last-child {
+      border-right: none;
+    };
+  }
+
+  /* .pag__button */
+  &__button {
+    display: flex;
+    width: 100%;
+  }
+
+  /* .pag__link */
+  &__link {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: $mainColor;
+    font-family: $USB;
+    cursor: pointer;
+    width: 100%;
+    padding: to-rem(50) to-rem(15);
+    background-color: $paginationBg;
+    transition: all 0.3s ease;
+    @include adaptiveValue("font-size", 23, 15);
+    @include adaptiveValue("padding-top", 50, 20);
+    @include adaptiveValue("padding-bottom", 50, 20);
+    &._active{
+      color: $submitBtn;
+      background-color: $paginationActive;
+    }
+    &:hover {
+      color: $submitBtn;
+      background-color: $paginationActive;
+    }
+  }
+}

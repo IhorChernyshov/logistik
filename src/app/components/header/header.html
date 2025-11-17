@@ -1,0 +1,43 @@
+<header class="header">
+  <div class="header__container">
+    <a href="#" class="header__logo" (click)="onNavLinkClick($event, '#hero')">
+      <span class="header__logo-text">Infinity Logistik & Verpackung</span>
+    </a>
+
+    <nav class="header__nav" [class.header__nav--open]="mobileMenuOpen()">
+      <ul class="header__menu">
+        @for (link of navLinks(); track link.href) {
+          <li class="header__menu-item">
+            <a
+              [href]="link.href"
+              class="header__menu-link"
+              (click)="onNavLinkClick($event, link.href)"
+            >
+              {{ link.label }}
+            </a>
+          </li>
+        }
+      </ul>
+
+      <div class="header__cta">
+        <app-button
+          [text]="'Anfrage senden'"
+          [type]="'outline'"
+          (clicked)="onCtaClick()"
+        />
+      </div>
+    </nav>
+
+    <button
+      type="button"
+      class="header__burger"
+      [class.header__burger--active]="mobileMenuOpen()"
+      (click)="toggleMobileMenu()"
+      aria-label="Toggle menu"
+    >
+      <span class="header__burger-line"></span>
+      <span class="header__burger-line"></span>
+      <span class="header__burger-line"></span>
+    </button>
+  </div>
+</header>

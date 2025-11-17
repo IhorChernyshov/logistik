@@ -1,0 +1,110 @@
+@use '../../../assets/style/base/mixins' as *;
+@use '../../../assets/style/base/shared' as *;
+
+.footer {
+  background: $navyDark;
+  color: $white;
+  @include adaptiveValue("padding-top", 60, 40);
+  @include adaptiveValue("padding-bottom", 30, 24);
+
+  &__container {
+    max-width: to-rem(1440);
+    margin: 0 auto;
+    @include adaptiveValue("padding-left", 40, 20);
+    @include adaptiveValue("padding-right", 40, 20);
+  }
+
+  &__top {
+    display: flex;
+    flex-direction: column;
+    border-bottom: to-rem(1) solid rgba($white, 0.1);
+    @include adaptiveValue("gap", 40, 32);
+    @include adaptiveValue("padding-bottom", 40, 32);
+    @include adaptiveValue("margin-bottom", 30, 24);
+  }
+
+  &__brand {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__logo {
+    font-family: $PM;
+    font-weight: 600;
+    color: $white;
+    margin: 0;
+    @include adaptiveValue("font-size", 24, 20);
+  }
+
+  &__columns {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    @include adaptiveValue("gap", 32, 24);
+
+    @media (max-width: to-rem(991.98)) {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    @media (max-width: to-rem(767.98)) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @media (max-width: to-rem(479.98)) {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  &__column {
+    display: flex;
+    flex-direction: column;
+    @include adaptiveValue("gap", 16, 12);
+  }
+
+  &__column-title {
+    font-family: $PM;
+    font-weight: 600;
+    color: $white;
+    margin: 0;
+    @include adaptiveValue("font-size", 16, 15);
+  }
+
+  &__links {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    @include adaptiveValue("gap", 12, 10);
+  }
+
+  &__link-item {
+    margin: 0;
+  }
+
+  &__link {
+    font-family: $PR;
+    color: rgba($white, 0.7);
+    text-decoration: none;
+    transition: color 0.3s ease;
+    @include adaptiveValue("font-size", 14, 13);
+
+    &:hover {
+      color: $white;
+    }
+  }
+
+  &__bottom {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &__copyright {
+    font-family: $PR;
+    color: rgba($white, 0.6);
+    text-align: center;
+    margin: 0;
+    line-height: 1.6;
+    @include adaptiveValue("font-size", 13, 12);
+  }
+}

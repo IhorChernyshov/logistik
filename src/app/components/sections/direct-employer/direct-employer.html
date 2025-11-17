@@ -1,0 +1,34 @@
+<section id="employer" class="direct-employer">
+  <div class="direct-employer__container">
+    <header class="direct-employer__header" appScrollAnimate>
+      <h2 class="direct-employer__title">{{ title() }}</h2>
+      <p class="direct-employer__description">{{ description() }}</p>
+    </header>
+
+    <div class="direct-employer__content">
+      <div class="direct-employer__features" appScrollAnimate>
+        @for (feature of features(); track feature.title) {
+          <app-icon-feature
+            [iconClass]="feature.iconClass"
+            [title]="feature.title"
+            [description]="feature.description"
+          />
+        }
+      </div>
+
+      <div class="direct-employer__photo" appScrollAnimate>
+        <div class="direct-employer__photo-content">
+          <p class="direct-employer__photo-text">{{ photoDescription() }}</p>
+        </div>
+        @if (photoUrl()) {
+          <img
+            [src]="photoUrl()"
+            alt="Warehouse"
+            class="direct-employer__photo-image"
+            loading="lazy"
+          />
+        }
+      </div>
+    </div>
+  </div>
+</section>

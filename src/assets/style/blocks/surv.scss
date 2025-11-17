@@ -1,0 +1,112 @@
+@use '../../../assets/style/style' as *;
+@use '../../../assets/style/base/mixins' as *;
+@use '../../../assets/style/base/shared' as *;
+
+
+.surv {
+  border-top: to-rem(1) solid $blockLine;
+  border-bottom: to-rem(1) solid $blockLine;
+  @include adaptiveValue("padding-block-start", 100, 40);
+  @include adaptiveValue("padding-block-end", 130, 40);
+  /* .surv__container */
+  &__container {
+    @include adaptiveValue("padding-left", 50, 15, 1540, 767.98);
+    @include adaptiveValue("padding-right", 50, 15, 1540, 767.98);
+  }
+
+  &__body{
+    display: grid;
+    align-items: end;
+    //column-gap: to-rem(50);
+    @media (min-width: em(1199.98)) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    @media (max-width: em(1199.98)) {
+      grid-template-columns: repeat(1, 1fr);
+      row-gap: to-rem(10);
+    }
+
+    &.order-reversed {
+      direction: rtl;
+      > * {
+        direction: ltr;
+      }
+    }
+  }
+
+  &__content{
+    padding: to-rem(25)  to-rem(50) to-rem(25) to-rem(50) ;
+    background-color: $bgDroneInfo;
+    border-radius: to-rem(25) to-rem(25) to-rem(0) to-rem(25);
+    @media (max-width: em(1199.98)) {
+      grid-column: 1;
+      grid-row: 2;
+      border-radius: to-rem(0) to-rem(0) to-rem(25) to-rem(25);
+      padding: to-rem(25) to-rem(25) to-rem(25) to-rem(25) ;
+      @include adaptiveValue("padding-left", 25, 15, 1199.98, 767.98,1);
+      @include adaptiveValue("padding-right", 25, 15, 1199.98, 767.98,1);
+      @include adaptiveValue("padding-bottom", 25, 15, 1199.98, 767.98,1);
+    }
+
+    &.order-reversed {
+      border-radius: to-rem(25) to-rem(25) to-rem(25) to-rem(0);
+      @media (max-width: em(1199.98)) {
+        grid-column: 1;
+        grid-row: 2;
+        border-radius: to-rem(0) to-rem(0) to-rem(25) to-rem(25);
+        padding: to-rem(25) to-rem(25) to-rem(25) to-rem(25) ;
+        @include adaptiveValue("padding-left", 25, 15, 1199.98, 767.98,1);
+        @include adaptiveValue("padding-right", 25, 15, 1199.98, 767.98,1);
+        @include adaptiveValue("padding-bottom", 25, 15, 1199.98, 767.98,1);
+      }
+    }
+  }
+
+  &__text{
+    @include adaptiveValue("margin-bottom", 100, 35);
+
+    &--neural{
+      //max-width: to-rem(450);
+      @include adaptiveValue("margin-bottom", 90, 35);
+    }
+
+    &--saving{
+      margin-bottom: to-rem(180);
+      @include adaptiveValue("margin-bottom", 180, 35, 1540, 991.98);
+      @include adaptiveValue("margin-bottom", 81, 35, 991.98, 320);
+
+    }
+  }
+
+  &__button{
+    margin-bottom: to-rem(70);
+    @include adaptiveValue("margin-bottom", 70, 25, 1540, 991.98, 1);
+
+    &--neural{
+      margin-bottom: to-rem(10);
+      @include adaptiveValue("margin-bottom", 10, 25, 1540, 991.98, 1);
+    }
+  }
+
+  &__button-flex{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__media{
+    @media (max-width: em(1199.98)) {
+      grid-column: 1;
+      grid-row: 1;
+    }
+  }
+
+  &__overlay-text{
+    font-family: $UR;
+    padding-top: to-rem(34);
+    padding-left: to-rem(10);
+    margin-bottom: to-rem(15);
+    @include adaptiveValue("font-size", 25, 18);
+
+  }
+}

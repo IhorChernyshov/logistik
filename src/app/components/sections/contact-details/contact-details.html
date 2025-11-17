@@ -1,0 +1,19 @@
+<section id="contact-details" class="contact-details">
+  <div class="contact-details__container">
+    <header class="contact-details__header" appScrollAnimate>
+      <h2 class="contact-details__title">{{ title() }}</h2>
+    </header>
+
+    <div class="contact-details__cards" appScrollAnimate>
+      <app-contact-info-card
+        [type]="'email'"
+        [info]="email()"
+      />
+
+      <app-contact-info-card
+        [type]="'location'"
+        [info]="address()"
+      />
+    </div>
+  </div>
+</section>

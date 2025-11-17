@@ -1,0 +1,142 @@
+@use '../../../assets/style/style' as *;
+@use '../../../assets/style/base/mixins' as *;
+@use '../../../assets/style/base/shared' as *;
+
+.tablet {
+  border-bottom: to-rem(1) solid $blockLine;
+  @include adaptiveValue("padding-block-start", 100, 40);
+  @include adaptiveValue("padding-block-end", 130, 40);
+
+  &__container {
+    @include adaptiveValue("padding-left", 50, 15, 1540, 767.98);
+    @include adaptiveValue("padding-right", 50, 15, 1540, 991.98);
+  }
+
+  /* .tablet__body */
+  &__body {
+
+  }
+
+  /* .tablet__points */
+  &__points {
+    border-radius: to-rem(25);
+    background-color: $bgDroneInfo;
+  }
+
+  &__btn{
+    margin-top: to-rem(50);
+  }
+}
+
+.tabl {
+  /* .tabl__body */
+  &__body {
+  }
+
+  /* .tabl__list */
+  &__list {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    padding: to-rem(15) 0;
+  }
+
+  /* .tabl__item */
+  &__item {
+    padding: to-rem(35) to-rem(0);
+    flex: 1 1 30%;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    @media (min-width: $mobile) {
+
+
+      &::after {
+        content: '';
+        position: absolute;
+        width: 100%;
+        height: to-rem(1);
+        top: 40%;
+        left: to-rem(0);
+        background-color: $mainColor;
+      }
+    }
+
+    &:first-child {
+      &::after {
+        left: to-rem(20);
+      }
+    }
+
+    &:nth-child(2){
+      @media (max-width: $tablet) {
+        &::after {
+          width: 100%;
+          left: to-rem(-20);
+        }
+      }
+    }
+
+    &:last-child {
+      &::after {
+        width: 100%;
+        left: to-rem(-20);
+        @media (max-width: $tablet) {
+          display: none;
+        }
+
+      }
+    }
+
+    &:not(:last-child) {
+      border-right: to-rem(1) solid $mainColor;
+      @media (max-width: $tablet) {
+        border-bottom: 1px solid #fff;
+      }
+      @media (max-width: $mobile) {
+        border-right: none;
+        @include adaptiveValue("margin-bottom", 30, 10);
+      }
+    }
+
+    @media (max-width: $tablet) {
+      flex: 1 1 40%;
+    }
+
+    @media (max-width: $mobile) {
+      flex: 1 1 100%;
+      padding: to-rem(15) 0;
+    }
+  }
+}
+
+.item {
+  @media (max-width: $tablet) {
+    &:last-child {
+      .item__title {
+        margin-bottom: to-rem(20);
+      }
+      .item__text {
+        padding: to-rem(0) to-rem(20) 0 to-rem(20);
+      }
+    }
+  }
+  @media (max-width: $mobile) {
+    .item__title {
+      margin-bottom: to-rem(20);
+    }
+    .item__text {
+      padding: to-rem(0) to-rem(20) 0 to-rem(20);
+    }
+  }
+  &__title {
+    padding: to-rem(0) to-rem(20);
+    margin-bottom: to-rem(20);
+  }
+
+  &__text {
+    @include adaptiveValue("padding-top", 47, 22);
+    @include adaptiveValue("padding-right", 20, 15);
+    @include adaptiveValue("padding-left", 20, 15);
+  }
+}

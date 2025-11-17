@@ -1,0 +1,432 @@
+// Подключение необходимых модулей
+@use "sass:math";
+@use "sass:meta";
+@use "./fonts";
+@use "./icons";
+@use "./null";
+
+// Ширина ограничивающего контейнера (0 = нет ограничения)
+$maxWidthContainer: 1572;
+
+// Определение общих функций
+@function to-rem($px) {
+  $result: math.div($px, 16) + rem;
+  @return $result;
+}
+
+@function percent($px, $from) {
+  @return math.div($px, $from) * 100%;
+}
+
+
+// Определение общих переменных
+$fontFamily: "Poppins", sans-serif;
+$fontSize: to-rem(17); // где 17(px) - размер шрифта по умолчанию
+$mainColor: #FFFFFF;
+$bgDark: rgb(20, 20, 20);
+$bgWhite: #1E2122;
+
+// Определение общих миксинов
+@mixin anim($time, $delay){-webkit-transition: all $time ease $delay;-moz-transition: all $time ease $delay;-ms-transition: all $time ease $delay;-o-transition: all $time ease $delay;transition: all $time ease $delay;}
+
+@mixin flexbox(){display: -webkit-box;display: -moz-box;display: -ms-flexbox;display: -webkit-flex;display: flex;}
+
+// Добавьте сюда другие общие переменные, функции и миксины
+
+// Подключение шрифтов ===========================================================================================================================================================================================================================================================================
+//&display=swap - добавить при подключении через плагин
+
+//Unbounded========================================================================================================================================================$1
+
+@font-face {
+  font-family: 'Unbounded-Regular';
+  src: url('../fonts/Unbounded/Unbounded-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Unbounded-Medium';
+  src: url('../fonts/Unbounded/Unbounded-Medium.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Unbounded-SemiBold';
+  src: url('../fonts/Unbounded/Unbounded-SemiBold.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Unbounded-Bold';
+  src: url('../fonts/Unbounded/Unbounded-Bold.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Unbounded-ExtraBold';
+  src: url('../fonts/Unbounded/Unbounded-ExtraBold.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+//Poppins========================================================================================================================================================$1
+
+@font-face {
+  font-family: 'Poppins-Regular';
+  src: url('../fonts/Poppins/Poppins-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Poppins-Medium';
+  src: url('../fonts/Poppins/Poppins-Medium.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Poppins-SemiBold';
+  src: url('../fonts/Poppins/Poppins-SemiBold.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+//Montserrat========================================================================================================================================================$1
+
+@font-face {
+  font-family: 'Montserrat-Bold';
+  src: url('../fonts/Montserrat/Montserrat-Bold.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Montserrat-ExtraBold';
+  src: url('../fonts/Montserrat/Montserrat-ExtraBold.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+//Merriweather========================================================================================================================================================$1
+
+@font-face {
+  font-family: 'Merriweather-Bold';
+  src: url('../fonts/Merriweather/Merriweather-Bold.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Merriweather-Black';
+  src: url('../fonts/Merriweather/Merriweather-Black.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+
+
+//@include meta.load-css("./fonts");
+
+// Подключение иконочных шрифтов ==============================================================================================================================================================================================================================================================================
+//@include meta.load-css("./icons");
+
+// Шрифт по умолчанию ==============================================================================================================================================================================================================================================================================
+$fontFamily: Poppins-Regular, sans-serif;
+$fontSize: to-rem(17); // где 14(px) - размер шрифта по умолчанию из макета
+
+// Основной цвет шрифта
+$mainColor: #ffffff;
+$whiteColor: #f0eadf;
+$bgDark: rgb(20, 20, 20);
+//$bgWhite: #282828;
+//$bgWhite: #1E2122;
+$bgWhite: #DFE5EC;
+$darkThemeMainColor: #FFFFFF;
+
+//AeroVanguard-Colors========================================================================================================================================================$1
+$headerItems: #FFFFFF;
+$headerPointsLine: #B9B9B9;
+$headerButtonBorder: #D9D9D9;
+$headerDropDown: #151515;
+$headerSubTitle: #BABABA;
+$logoWords: #000000;
+$subTitle: #303030;
+$title: #282727;
+$text: #303030;
+$circleBg: #2B2B2B;
+$imageWords: #FBFAFA;
+$manufText: #FAFAFA;
+//$blockLine: #A2A0A0;
+$blockLine: rgba(162, 160, 160, 0.75);
+$logosGrid: #3A3A3A;
+$textBg: #F8F8F8;
+$summary: #101010;
+$lineBg: #94B6CB;
+$lineFireBg: #364955;
+$contactUs: #101010;
+$contactSubtitle: #101010;
+$placeholder: #494848;
+$contactText: #2B2B2B;
+$aboutText: #2B2B2B;
+$submitBtn: #303030;
+$contactLines: #000000;
+$footerLinks: #8C8C8F;
+$footerBorder: #DCD8D8;
+$footerBanner: #FFFFFF;
+$footerBg: #2B2B2B;
+$bgDroneInfo: #262626;
+$tabletText: #D0D0D0;
+$sliderBorder: #727272;
+$paginationBg: #1C1C1C;
+$paginationActive: #D9D9D9;
+
+
+// Fonts ==============================================================================================================================================================================================================================================================================
+$UR: Unbounded-Regular, sans-serif;
+$UM: Unbounded-Medium, sans-serif;
+$USB: Unbounded-SemiBold, sans-serif;
+$UB: Unbounded-Bold, sans-serif;
+$UEB: Unbounded-ExtraBold, sans-serif;
+
+$PR: Poppins-Regular, sans-serif;
+$PM: Poppins-Medium, sans-serif;
+$PSB: Poppins-SemiBold, sans-serif;
+
+$MB: Montserrat-Bold, sans-serif;
+$MEB: Montserrat-ExtraBold, sans-serif;
+
+$MBold: Merriweather-Bold, sans-serif;
+$MBlack: Merriweather-Black, sans-serif;
+
+// Raleway fonts from Google Fonts (main fonts for Infinity Logistik)
+$R: 'Raleway', sans-serif;           // Regular 400
+$RM: 'Raleway', sans-serif;          // Medium 500
+$RSB: 'Raleway', sans-serif;         // SemiBold 600
+$RB: 'Raleway', sans-serif;          // Bold 700
+$REB: 'Raleway', sans-serif;         // ExtraBold 800
+
+// Montserrat from Google Fonts
+$M: 'Montserrat', sans-serif;        // Bold 700
+$MExt: 'Montserrat', sans-serif;     // ExtraBold 800
+
+
+//==NEW COLORS======================================================================================================================================================$1
+$lastMesAndDate: #7c7b7b;
+
+$newBgColor: linear-gradient(45deg,
+  #020d56,
+  #071b6b,
+  #020a1e,
+  #06033a,
+  #22046c,
+  #240541);
+
+$newTxtColor: linear-gradient(45deg,
+  #5d70e8,
+  #ecebef,
+  #5a82ea,
+  #ecebef,
+);
+
+/*$newCancelBgColor: linear-gradient(98.3deg,
+  rgb(255, 46, 0) 40.4%,
+  rgb(0, 0, 0) 10.6%,
+  rgb(255, 0, 0) 60.7%);
+
+$newCloseBgColor: radial-gradient(circle at 10% 20%, rgb(87, 108, 117) 0%, rgb(37, 50, 55) 100.2%);
+
+$newSaveBgColor: radial-gradient(780px at 37.8% 100.3%,
+  #ecebef,
+  rgb(19, 55, 115) 2.2%,
+  rgb(32, 7, 80) 20.2%,
+  rgb(27, 88, 111) 58.6%,
+  rgb(115, 88, 44) 75%,
+  rgb(99, 19, 90) 89.6%,
+  rgb(12, 51, 76) 96.1%);
+
+$newModeBg: linear-gradient(109.6deg, rgba(0, 0, 0, 0.93) 11.2%, rgb(63, 61, 61) 78.9%);
+
+$newLinkColor: linear-gradient(99.6deg,
+  rgb(112, 128, 152) 10.6%,
+  rgb(242, 227, 234) 32.9%,
+  rgb(234, 202, 213) 52.7%,
+  rgb(220, 227, 239) 72.8%,
+  rgb(185, 205, 227) 81.1%,
+  rgb(154, 180, 212) 102.4%);
+
+$greyCircle: linear-gradient(180.3deg, rgb(221, 221, 221) 5.5%, rgb(110, 136, 161) 90.2%);
+$futureGreyCircle: linear-gradient(-20deg, #dcb0ed 0%, #99c99c 100%);
+$greenCircle: linear-gradient(109.6deg, rgb(0, 204, 130) 11.2%, rgb(58, 181, 46) 91.7%);
+$brightGreenCircle: linear-gradient(111.4deg, rgb(2, 255, 4) 18.4%, rgb(0, 232, 237) 100.2%);*/
+
+$yellowBlue: linear-gradient(45deg,
+  #F5C86A 0%,
+  #E9B865 50%,
+  #768FB5 100%
+);
+
+// Infinity Logistik Colors ========================================================================================================================================================$1
+$navyDark: #0E293F;        // primary dark navy (cards, footer) - UPDATED FROM FIGMA
+$navyLight: #5A7FA5;       // lighter blue (hover states)
+$grayLight: #F5F5F5;       // light section backgrounds
+$grayCard: #E8E8E8;        // testimonial card backgrounds
+$textDark: #1A1A1A;        // primary text
+$textGray: #666666;        // secondary text
+$numberGray: #CCCCCC;      // large numbers in cards
+$white: #FFFFFF;           // white
+
+
+
+//$newLinkColor: linear-gradient(to right top, #fb9cd2, #eca3e1, #dbabed, #cab2f4, #b8b9f8, #a1c4fd, #90cefb, #89d6f4, #91e1e6, #ace9d6, #ceedcb, #eef0cb);
+
+@keyframes bg-animation {
+  0% {
+    background-position: left
+  }
+  100% {
+    background-position: right
+  }
+}
+
+// НАСТРОЙКИ ===============================================================================================================================================================================================================================================================================================
+// Минимальная ширина страницы
+$minWidth: 320;
+// Ширина полотна (макета)
+$maxWidth: 1920;
+// Ширина ограничивающего контейнера (0 = нет ограничения)
+//$maxWidthContainer: 1572;
+$maxWidthContainer: 1440;
+// Общий отступ у контейнера
+// (30 = по 15px слева и справа, 0 = нет отступа)
+$containerPadding: 30;
+
+// Тип адаптива:
+// 1 = отзывчивость (у контейнера нет брейкпоинтов),
+// 2 = по брейк-поинтам (контейнер меняет свою ширину по брейк-поинтам)
+$responsiveType: 1;
+
+// Ширина страбатывания первого брейкпоинта
+$containerWidth: $maxWidthContainer + $containerPadding;
+//$containerWidth: 1920 + 30;
+
+// Брейк-поинты
+/*$pc: em($containerWidth); // ПК, ноутбуки, некоторые планшеты в горизонтальном положении
+$tablet: em(991.98); // Планшеты, некоторые телефоны в горизонтальном положении
+$mobile: em(767.98); // Телефоны L
+$mobileSmall: em(479.98); // Телефоны S*/
+
+// Обнуление и общие параметры ============================================================================================================================================================================================== =============================================================================================== ===============================================================================================
+//@include meta.load-css("base/null");
+
+body {
+  //color: $mainColor;
+  color: $text;
+  background-color: $bgWhite;
+
+  animation: bg-animation 15s infinite alternate;
+  @keyframes bg-animation {
+    0% {
+      background-position: left
+    }
+    100% {
+      background-position: right
+    }
+  }
+  // Скролл заблокирован
+  .lock & {
+    overflow: hidden;
+    touch-action: none;
+  }
+}
+
+.dark-mode{
+  color: $darkThemeMainColor;
+  background-color: $bgDark;
+}
+
+// Оболочка ============================================================================================================================================================================================================================================================================================================================================================================================================================================
+.wrapper {
+  // Сайт загружен
+  .loaded & {
+  }
+  // Прижимаем footer
+  > main {
+    flex-grow: 1;
+  }
+  // Фикс для слайдеров
+  > * {
+    min-width: 0;
+  }
+}
+
+// Ограничивающий контейнер ======================================================================================================================================================================================================================
+
+/*
+(i) Стили будут применяться ко
+всем классам содержащим *__container
+Например header__container, main__container и т.д.
+Снипет (HTML): cnt
+*/
+
+[class*="__container"]{
+  max-width: to-rem(1440);
+  margin: 0 auto;
+  padding: to-rem(0) to-rem(15);
+
+}
+[class*="__container--flex"]{
+  max-width: to-rem(1440);
+  margin: 0 auto;
+  padding: to-rem(0) to-rem(15);
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+@if ($responsiveType==1) {
+  // Отзывчивая
+  [class*="__container-big"] {
+    @if ($maxWidthContainer>0) {
+      max-width: to-rem($maxWidthContainer);
+      box-sizing: content-box;
+      margin: 0 auto;
+    }
+    @if ($containerPadding>0) {
+      padding: 0 to-rem(math.div($containerPadding, 2));
+    }
+  }
+  [class*="__container_wide"] {
+    max-width: to-rem(1680);
+  }
+} @else {
+  // По брейк-поинтам
+  [class*="__container"] {
+    margin: 0 auto;
+    @if ($maxWidthContainer>0) {
+      max-width: to-rem($maxWidthContainer);
+      box-sizing: content-box;
+    } @else {
+      @if ($containerPadding>0) {
+        padding: 0 to-rem(math.div($containerPadding, 2));
+      }
+    }
+    @media (max-width: $pc) {
+      max-width: to-rem(970);
+    }
+    @media (max-width: $tablet) {
+      max-width: to-rem(750);
+    }
+    @media (max-width: $mobile) {
+      max-width: none;
+      @if ($containerPadding>0 and $maxWidthContainer>0) {
+        padding: 0 to-rem(math.div($containerPadding, 2));
+      }
+    }
+  }
+}
+

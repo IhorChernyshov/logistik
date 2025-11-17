@@ -1,0 +1,20 @@
+<section id="why-choose" class="why-choose-us">
+  <div class="why-choose-us__container">
+    <header class="why-choose-us__header" appScrollAnimate>
+      <h2 class="why-choose-us__title">{{ title() }}</h2>
+      <p class="why-choose-us__subtitle">{{ subtitle() }}</p>
+    </header>
+
+    <div class="why-choose-us__cards">
+      @for (card of cards(); track card.number) {
+        <div appScrollAnimate>
+          <app-numbered-card
+            [number]="card.number"
+            [title]="card.title"
+            [description]="card.description"
+          />
+        </div>
+      }
+    </div>
+  </div>
+</section>

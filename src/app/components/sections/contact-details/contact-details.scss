@@ -1,0 +1,39 @@
+@use '../../../../assets/style/base/mixins' as *;
+@use '../../../../assets/style/base/shared' as *;
+
+.contact-details {
+  background: $white;
+  @include adaptiveValue("padding-top", 60, 40);
+  @include adaptiveValue("padding-bottom", 80, 60);
+
+  &__container {
+    max-width: to-rem(900);
+    margin: 0 auto;
+    @include adaptiveValue("padding-left", 40, 20);
+    @include adaptiveValue("padding-right", 40, 20);
+  }
+
+  &__header {
+    text-align: center;
+    @include adaptiveValue("margin-bottom", 40, 32);
+  }
+
+  &__title {
+    font-family: $UB;
+    font-weight: 700;
+    color: $textDark;
+    line-height: 1.3;
+    margin: 0;
+    @include adaptiveValue("font-size", 36, 28);
+  }
+
+  &__cards {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    @include adaptiveValue("gap", 24, 20);
+
+    @media (max-width: to-rem(767.98)) {
+      grid-template-columns: 1fr;
+    }
+  }
+}

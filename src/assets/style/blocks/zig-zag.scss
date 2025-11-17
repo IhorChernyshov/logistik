@@ -1,0 +1,107 @@
+@use '../../../assets/style/style' as *;
+@use '../../../assets/style/base/mixins' as *;
+@use '../../../assets/style/base/shared' as *;
+@use '../../../assets/style/blocks/second-block' as *;
+
+.develop {
+  border-top: to-rem(1) solid $blockLine;
+  border-bottom: to-rem(1) solid $blockLine;
+  @include adaptiveValue("padding-block-start", 100, 40);
+  @include adaptiveValue("padding-block-end", 130, 40);
+  /* .develop__container */
+  &__container {
+    @include adaptiveValue("padding-left", 50, 15, 1540, 767.98);
+    @include adaptiveValue("padding-right", 50, 15, 1540, 767.98);
+  }
+
+  /* .develop__body */
+  &__body {
+  }
+
+  /* .develop__list */
+  &__list {
+  }
+
+  /* .develop__item */
+  &__item {
+    display: grid;
+    column-gap: to-rem(25);
+
+    &:not(:last-child) {
+      margin-bottom: to-rem(150);
+      @include adaptiveValue("margin-bottom", 150, 30);
+    }
+
+    @media (min-width: $tablet) {
+
+
+      &:nth-child(even) {
+        & > *:first-child {
+          grid-column: 2;
+        }
+        & > *:not(.develop__box-length) {
+          grid-column: 2;
+        }
+        .develop__box-length {
+          grid-column: 1;
+        }
+      }
+    }
+    @media (min-width: em(991.98)) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    @media (max-width: em(991.98)) {
+      grid-template-columns: repeat(1, 1fr);
+    }
+
+    &--civil{
+      column-gap: to-rem(100);
+      @include adaptiveValue("column-gap", 100, 25, 1540, 991.98);
+    }
+
+  }
+
+
+  /* .develop__item-title */
+  &__item-title {
+    @media (max-width: $tablet) {
+      grid-column: 1;
+      grid-row: 1;
+    }
+  }
+
+  /* .develop__item-text */
+  &__item-text {
+    grid-column: 1;
+    grid-row: 2;
+    margin-bottom: to-rem(20);
+    @media (max-width: $tablet) {
+      grid-column: 1;
+      grid-row: 3;
+    }
+  }
+
+  /* .develop__btn */
+  &__btn {
+    grid-column: 1;
+    grid-row: 3 / span 4;
+    align-self: end;
+    margin-bottom: to-rem(5);
+    @media (max-width: $tablet) {
+      grid-column: 1;
+      grid-row: 4;
+    }
+  }
+
+  /* .develop__box-length */
+  &__box-length {
+    grid-column: 2;
+    grid-row: 1 / span 6;
+    @media (max-width: $tablet) {
+      grid-column: 1;
+      grid-row: 2;
+      margin-bottom: to-rem(15);
+    }
+  }
+
+}

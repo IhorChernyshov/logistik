@@ -1,0 +1,10 @@
+@use '_shared.scss' as *;
+[data-fullscreen] {
+	height: 100vh;
+	.touch & {
+		height: calc(var(--vh, 1vh) * 100);
+		@media (max-width: $mobile) {
+			transition: height 0.2s;
+		}
+	}
+}

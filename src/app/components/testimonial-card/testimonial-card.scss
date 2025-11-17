@@ -1,0 +1,67 @@
+@use '../../../assets/style/base/mixins' as *;
+@use '../../../assets/style/base/shared' as *;
+
+.testimonial-card {
+  display: flex;
+  flex-direction: column;
+  background: $grayCard;
+  border-radius: to-rem(12);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  @include adaptiveValue("padding-top", 24, 20);
+  @include adaptiveValue("padding-bottom", 24, 20);
+  @include adaptiveValue("padding-left", 24, 20);
+  @include adaptiveValue("padding-right", 24, 20);
+  @include adaptiveValue("gap", 20, 16);
+
+  &:hover {
+    transform: translateY(to-rem(-4));
+    box-shadow: 0 to-rem(8) to-rem(20) rgba($textDark, 0.1);
+  }
+
+  &__text {
+    font-family: $PR;
+    color: $textDark;
+    line-height: 1.7;
+    margin: 0;
+    flex: 1;
+    @include adaptiveValue("font-size", 15, 14);
+  }
+
+  &__author {
+    display: flex;
+    align-items: center;
+    @include adaptiveValue("gap", 12, 10);
+  }
+
+  &__avatar {
+    flex-shrink: 0;
+    width: to-rem(50);
+    height: to-rem(50);
+    border-radius: 50%;
+    object-fit: cover;
+    border: to-rem(2) solid $white;
+  }
+
+  &__info {
+    display: flex;
+    flex-direction: column;
+    @include adaptiveValue("gap", 4, 3);
+  }
+
+  &__name {
+    font-family: $PM;
+    font-weight: 600;
+    color: $textDark;
+    line-height: 1.2;
+    margin: 0;
+    @include adaptiveValue("font-size", 15, 14);
+  }
+
+  &__position {
+    font-family: $PR;
+    color: $textGray;
+    line-height: 1.2;
+    margin: 0;
+    @include adaptiveValue("font-size", 13, 12);
+  }
+}

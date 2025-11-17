@@ -1,0 +1,18 @@
+<section id="hero" class="hero-section" [style.background-image]="'url(' + backgroundImage() + ')'">
+  <div class="hero-section__overlay"></div>
+
+  <div class="hero-section__container">
+    <div class="hero-section__content" appFadeIn>
+      <h1 class="hero-section__title">{{ title() }}</h1>
+      <p class="hero-section__subtitle">{{ subtitle() }}</p>
+
+      <div class="hero-section__cta">
+        <app-button
+          [text]="ctaText()"
+          [type]="'white'"
+          (clicked)="onCtaClick()"
+        />
+      </div>
+    </div>
+  </div>
+</section>

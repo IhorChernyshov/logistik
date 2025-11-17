@@ -1,0 +1,62 @@
+@font-face {
+  font-family: 'icons';
+  src:  url('../fonts/icons.eot?hk9eqe');
+  src:  url('../fonts/icons.eot?hk9eqe#iefix') format('embedded-opentype'),
+  url('../fonts/icons.ttf?hk9eqe') format('truetype'),
+  url('../fonts/icons.woff?hk9eqe') format('woff'),
+  url('../fonts/icons.svg?hk9eqe#icons') format('svg');
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+
+[class^="_icon-"], [class*=" _icon-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'icons' !important;
+  speak: never;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+._icon-trolley:before {
+  content: "\e908";
+  color: #fff;
+}
+._icon-like:before {
+  content: "\e909";
+}
+._icon-share:before {
+  content: "\e90a";
+}
+._icon-play:before {
+  content: "\e905";
+
+}
+._icon-s-medium:before {
+  content: "\e902";
+}
+._icon-s-inst:before {
+  content: "\e903";
+}
+._icon-clock:before {
+  content: "\e906";
+}
+._icon-map:before {
+  content: "\e907";
+}
+._icon-s-tiktok:before {
+  content: "\e901";
+}
+._icon-sl-arrow:before {
+  content: "\e904";
+}
+._icon-s-twit:before {
+  content: "\e900";
+}

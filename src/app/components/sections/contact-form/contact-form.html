@@ -1,0 +1,88 @@
+<section id="contact" class="contact-form">
+  <div class="contact-form__container">
+    <header class="contact-form__header" appScrollAnimate>
+      <h2 class="contact-form__title">{{ title() }}</h2>
+      <p class="contact-form__description">{{ description() }}</p>
+    </header>
+
+    <form class="contact-form__form" [formGroup]="contactForm" (ngSubmit)="onSubmit()" appScrollAnimate>
+      <div class="contact-form__fields">
+        <div class="form-group">
+          <input
+            type="text"
+            id="name"
+            formControlName="name"
+            #inputName
+            class="form-group__input"
+            [class.form-group__input--error]="f['name'].invalid && f['name'].touched"
+            placeholder="Name..."
+          />
+          @if (f['name'].invalid && f['name'].touched) {
+            <div class="form-group__error">
+              <span class="form-group__error-text">{{ getNameErrorMessage(inputName.value?.length || 0) }}</span>
+            </div>
+          }
+        </div>
+
+        <div class="form-group">
+          <input
+            type="email"
+            id="email"
+            formControlName="email"
+            #inputEmail
+            autocomplete="on"
+            class="form-group__input"
+            [class.form-group__input--error]="f['email'].invalid && f['email'].touched"
+            placeholder="Write your email here"
+          />
+          @if (f['email'].invalid && f['email'].touched) {
+            <div class="form-group__error">
+              <span class="form-group__error-text">{{ getEmailErrorMessage(inputEmail.value?.length || 0) }}</span>
+            </div>
+          }
+        </div>
+      </div>
+
+      <div class="form-group">
+        <textarea
+          id="message"
+          formControlName="message"
+          #inputMessage
+          class="form-group__textarea"
+          [class.form-group__textarea--error]="f['message'].invalid && f['message'].touched"
+          placeholder="How can we help..."
+          rows="6"
+        ></textarea>
+        @if (f['message'].invalid && f['message'].touched) {
+          <div class="form-group__error">
+            <span class="form-group__error-text">{{ getMessageErrorMessage(inputMessage.value?.length || 0) }}</span>
+          </div>
+        }
+      </div>
+
+      <div class="contact-form__submit-container">
+        <div class="contact-form__messages">
+          @if (serverValidationError()) {
+            <div class="contact-form__error-server">
+              <span class="contact-form__error-text">{{ serverValidationError() }}</span>
+            </div>
+          }
+          @if (successMessage()) {
+            <div class="contact-form__success">
+              <span class="contact-form__success-icon">✓</span>
+              <span class="contact-form__success-text">{{ successMessage() }}</span>
+            </div>
+          }
+        </div>
+
+        <button
+          type="submit"
+          class="contact-form__btn"
+          [disabled]="contactForm.invalid || isSubmitting()"
+        >
+          {{ isSubmitting() ? 'Wird gesendet...' : 'Send a message' }}
+        </button>
+      </div>
+    </form>
+  </div>
+</section>

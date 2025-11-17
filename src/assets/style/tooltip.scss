@@ -1,0 +1,94 @@
+@use "../../assets/style/style";
+
+.tooltip-container {
+    cursor: pointer;
+    position: relative;
+    display: inline-block;
+    @media (max-width: style.$mobile) {
+        .tooltip-container,
+        .tooltip-text{
+            display: none;
+        }
+    }
+    .tooltip-text {
+        @media (max-width: style.$mobile) {
+           display: none;
+        }
+        visibility: hidden;
+        display: inline-flex;
+        position: absolute;
+        opacity: 0;
+        top: 150%;
+        left: 50%;
+        background-color: #151515;
+        border: to-rem(1) solid #252424;
+        transition: all 0.3s ease 0s;
+        font-size: to-rem(15);
+        padding: to-rem(5) to-rem(10);
+        line-height: 121%;
+        border-radius: to-rem(7);
+        transform: translateX(-50%);
+        &--menu{
+            position: absolute;
+           top: 100%;
+            left: 50%;
+            font-size: to-rem(12);
+            padding: to-rem(5) to-rem(10);
+            &::after {
+                  content: '';
+                 display: none;
+                }
+        }
+
+        &--menu-down {
+            position: absolute;
+            top: 60%;
+            left: 60%;
+            font-size: to-rem(12);
+            padding: to-rem(5) to-rem(10);
+
+            &::after {
+                content: '';
+                display: none;
+            }
+        }
+
+        &::after {
+            content: '';
+            position: absolute;
+            bottom: 100%; /* Arrow will be at the bottom of the tooltip */
+            left: 50%;
+            margin-left: to-rem(-5);
+            border-width: to-rem(5);
+            border-style: solid;
+            border-color:  transparent transparent #151515 transparent;
+        }
+        &--send{
+            top:120%
+        }
+    }
+
+    &:hover .tooltip-text {
+        visibility: visible;
+        opacity: 1;
+    }
+
+    &--menu{
+        &::after {
+            content: '';
+            display: none;
+        }
+    }
+    &--chat-upload{
+        position: absolute;
+        color: #fff;
+    }
+    &--chat-sent{
+        position: absolute;
+        right: 0;
+        color: #fff;
+    }
+
+}
+
+

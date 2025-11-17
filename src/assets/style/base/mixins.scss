@@ -1,0 +1,332 @@
+@use '_shared' as *;
+
+@use 'sass:math';
+
+
+
+//@mixin anim($time, $delay){-webkit-transition: all $time ease $delay;-moz-transition: all $time ease $delay;-ms-transition: all $time ease $delay;-o-transition: all $time ease $delay;transition: all $time ease $delay;}
+@mixin anim-cubic($time, $delay) {
+    -webkit-transition: all $time cubic-bezier(0.68, -0.55, 0.265, 1.55) $delay;
+    -moz-transition: all $time cubic-bezier(0.68, -0.55, 0.265, 1.55) $delay;
+    -ms-transition: all $time cubic-bezier(0.68, -0.55, 0.265, 1.55) $delay;
+    -o-transition: all $time cubic-bezier(0.68, -0.55, 0.265, 1.55) $delay;
+    transition: all $time cubic-bezier(0.68, -0.55, 0.265, 1.55) $delay;
+}
+@mixin animate($name, $time, $infinite, $type) {
+    -webkit-animation: $name $time + s $infinite $type;
+    -moz-animation: $name $time + s $infinite $type;
+    -ms-animation: $name $time + s $infinite $type;
+    -o-animation: $name $time + s $infinite $type;
+    animation: $name $time + s $infinite $type;
+}
+@mixin rotate($deg) {
+    -webkit-transform: rotate($deg);
+    -moz-transform: rotate($deg);
+    -ms-transform: rotate($deg);
+    -o-transform: rotate($deg);
+    transform: rotate($deg);
+}
+@mixin scale($num) {
+    -webkit-transform: scale($num);
+    -moz-transform: scale($num);
+    -ms-transform: scale($num);
+    -o-transform: scale($num);
+    transform: scale($num);
+}
+@mixin skew($num) {
+    -webkit-transform: skewX($num);
+    -moz-transform: skewX($num);
+    -ms-transform: skewX($num);
+    -o-transform: skewX($num);
+    transform: skewX($num);
+}
+@mixin cnt($h) {
+    display: flex;
+    flex-direction: column;
+    height: $h;
+    text-align: center;
+    align-items: stretch;
+    justify-content: center;
+}
+@mixin tr($x, $y, $z) {
+    transform: translate3d($x, $y, $z);
+    -webkit-transform: translate3d($x, $y, $z);
+    -ms-transform: translate3d($x, $y, $z);
+    -o-transform: translate3d($x, $y, $z);
+}
+//@mixin flexbox(){display: -webkit-box;display: -moz-box;display: -ms-flexbox;display: -webkit-flex;display: flex;}
+@mixin flexboxinline() {
+    display: -webkit-inline-flex;
+    display: -moz-inline-box;
+    display: -ms-inline-flexbox;
+    display: -o-flex;
+    display: inline-flex;
+}
+@mixin flexorder($val) {
+    -webkit-box-ordinal-group: $val;
+    -moz-box-ordinal-group: $val;
+    -ms-flex-order: $val;
+    -webkit-order: $val;
+    order: $val;
+}
+
+//Подключение шрифта
+@mixin font($font_name, $file_name, $weight, $style) {
+    @font-face {
+        font-family: $font_name;
+        font-display: swap;
+        src:
+            url('../fonts/#{$file_name}.woff2') format('woff2'),
+            url('../fonts/#{$file_name}.ttf') format('ttf');
+        font-weight: #{$weight};
+        font-style: #{$style};
+    }
+}
+//Percent
+@function percent($px, $from) {
+    $result: math.div($px, $from) * 100%;
+    @return $result;
+}
+////REM
+//@function to-rem($px) {
+//	$result: math.div($px, 16) + rem;
+//	@return $result;
+//}
+//EM
+@function em($px, $current: 16) {
+    $result: math.div($px, $current) + em;
+    @return $result;
+}
+//Адаптивное свойство
+@mixin adaptiveValue($property, $startSize, $minSize, $widthFrom: $containerWidth, $widthTo: $minWidth, $keepSize: 0) {
+    // Брейк-поинты в EM
+    $widthFromMedia: em($widthFrom);
+    $widthToMedia: em($widthTo);
+    // Ночальное и конечное значение в REM
+    $minSizeValue: to-rem($minSize);
+    $startSizeValue: to-rem($startSize);
+    // Пересчитываем переменные относительно
+    // размера шрифта по умолчанию
+    $minWidth: math.div($minWidth, 16);
+    $maxWidth: math.div($maxWidth, 16);
+    $containerWidth: math.div($containerWidth, 16);
+    $addSize: math.div($startSize - $minSize, 16);
+    $widthTo: math.div($widthTo, 16);
+    $widthFrom: math.div($widthFrom, 16);
+    // Если указано ограничение у контейнера,
+    // либо указана стартовая или конечная ширина
+    // включаем режим работы в промежутке ширин
+    @if ($maxWidthContainer > 0 or $widthFrom != $containerWidth or $widthTo != $minWidth) and $widthFrom > $widthTo {
+        // Если стартовая ширина равна ширине контейнера + отступы,
+        // или указана настройка "keepSize" ставим значение
+        // по умолчанию равное стартовому размеру
+        @if $widthFrom == $containerWidth or $keepSize == 1 or $keepSize == 2 {
+            @media (min-width: $widthFromMedia) {
+                #{$property}: $startSizeValue;
+            }
+        }
+        // Адаптируем размер в промежутке между указанными ширинами вьюпорта
+        @media (min-width: $widthToMedia) and (max-width: $widthFromMedia) {
+            #{$property}: calc(#{$minSizeValue} + #{$addSize} * (((100vw - #{$widthTo + rem})) / ((#{$widthFrom - $widthTo}))));
+        }
+        // Если конечная ширина равна минимальной ширине
+        // или указана настройка "keepSize" ставим значение
+        // по умолчанию равное конечному размеру
+        @if $widthTo == $minWidth or $keepSize == 1 or $keepSize == 3 {
+            @media (max-width: $widthToMedia) {
+                #{$property}: $minSizeValue;
+            }
+        }
+    } @else {
+        // Режим работы по всей ширине вьюпорта
+        #{$property}: calc(#{$minSizeValue} + #{$addSize} * (((100vw - #{$widthTo + rem})) / ((#{$maxWidth - $widthTo}))));
+    }
+}
+
+
+@mixin adaptivePercent($property, $startPercent, $minPercent, $widthFrom: $containerWidth, $widthTo: $minWidth, $keepSize: 0) {
+  // Breakpoints in EM
+  $widthFromMedia: em($widthFrom);
+  $widthToMedia: em($widthTo);
+
+  // Keep percentage values as is (no conversion to REM)
+  $minPercentValue: #{$minPercent + '%'};
+  $startPercentValue: #{$startPercent + '%'};
+
+  // Convert viewport widths relative to base font size
+  $minWidth: math.div($minWidth, 16);
+  $maxWidth: math.div($maxWidth, 16);
+  $containerWidth: math.div($containerWidth, 16);
+  $addPercent: $startPercent - $minPercent;
+  $widthTo: math.div($widthTo, 16);
+  $widthFrom: math.div($widthFrom, 16);
+
+  @if ($maxWidthContainer > 0 or $widthFrom != $containerWidth or $widthTo != $minWidth) and $widthFrom > $widthTo {
+    @if $widthFrom == $containerWidth or $keepSize == 1 or $keepSize == 2 {
+      @media (min-width: $widthFromMedia) {
+        #{$property}: $startPercentValue;
+      }
+    }
+
+    @media (min-width: $widthToMedia) and (max-width: $widthFromMedia) {
+      #{$property}: calc(#{$minPercentValue} + #{$addPercent} * (((100vw - #{$widthTo + rem})) / ((#{$widthFrom - $widthTo}))));
+    }
+
+    @if $widthTo == $minWidth or $keepSize == 1 or $keepSize == 3 {
+      @media (max-width: $widthToMedia) {
+        #{$property}: $minPercentValue;
+      }
+    }
+  } @else {
+    #{$property}: calc(#{$minPercentValue} + #{$addPercent} * (((100vw - #{$widthTo + rem})) / ((#{$maxWidth - $widthTo}))));
+  }
+}
+
+//Currency
+@mixin currency($sym) {
+    &::after {
+        content: '#{$sym}';
+    }
+}
+// Grids
+@mixin gridCards($type: fit, $min: 280px, $max: 1fr, $gap: 30px) {
+    display: grid;
+    gap: $gap;
+    grid-template-columns: repeat(auto-#{$type}, minmax($min, $max));
+}
+
+
+
+
+@mixin animated-underline($base-class) {
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  // Text wrapper
+  &-text {
+    position: relative;
+    cursor: pointer;
+  }
+
+  // Line element
+  &-line {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: to-rem(1);
+    pointer-events: none;
+
+    &::before {
+      content: '';
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      left: 0;
+      background-color: #fff;
+      transform: translateX(-100%);
+      transition: transform 0.3s ease;
+
+     /* @media (max-width: em(991.98)) {
+        transform: translateX(0);
+      }*/
+    }
+  }
+
+  &:hover {
+    .#{$base-class}-line::before {
+      transform: translateX(0);
+    }
+  }
+  @media (min-width: em(694.98)) {
+    padding-bottom: to-rem(5);
+  }
+}
+
+
+
+@mixin scale-underline {
+  position: relative;
+  cursor: pointer;
+
+  &::after {
+    background-color: currentColor;
+    bottom: 0;
+    content: "";
+    height: to-rem(1);
+    left: 0;
+    position: absolute;
+    width: 100%;
+    transform: scaleX(0);
+    transform-origin: right center;
+    transition: transform 0.7s cubic-bezier(0.19, 1, 0.22, 1);
+  }
+
+  &:hover::after {
+    transform: scaleX(1);
+    transform-origin: left center;
+  }
+}
+
+@mixin anim-btn {
+  position: relative;
+  cursor: pointer;
+
+  &::after {
+    background-color: currentColor;
+    bottom: calc(0% + (-5px));
+    content: "";
+    height: to-rem(2);
+    left: 0;
+    position: absolute;
+    width: 100%;
+    transform: scaleX(1);
+    transform-origin: left center;
+    transition: transform 0.7s cubic-bezier(0.19, 1, 0.22, 1);
+  }
+
+  &:hover::after {
+    transform: scaleX(0);
+    transform-origin: right center;
+  }
+}
+
+/*
+$scrollbar-width: 6px;
+$scrollbar-height: 6px;
+$scrollbar-color: rgba(255, 255, 255, 0.3);
+$scrollbar-hover-color: rgba(255, 255, 255, 0.4);
+
+// Scrollbar Base Mixin
+@mixin tiny-scrollbar {
+  // Firefox
+  &  {
+    scrollbar-width: thin;
+    scrollbar-color: $scrollbar-color transparent;
+  }
+
+  // Chrome, Safari, Edge
+  &::-webkit-scrollbar {
+    width: $scrollbar-width;
+    height: $scrollbar-height;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: $scrollbar-color;
+    border-radius: $scrollbar-width * 0.5;
+
+    &:hover {
+      background: $scrollbar-hover-color;
+    }
+  }
+
+  // IE
+  & {
+    -ms-overflow-style: -ms-autohiding-scrollbar;
+  }
+}
+*/

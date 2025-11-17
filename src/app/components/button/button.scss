@@ -1,0 +1,92 @@
+@use '../../../assets/style/base/mixins' as *;
+@use '../../../assets/style/base/shared' as *;
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: to-rem(2) solid transparent;
+  border-radius: to-rem(4);
+  font-family: $PM;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: to-rem(0.5);
+  white-space: nowrap;
+  @include adaptiveValue("padding-top", 14, 10);
+  @include adaptiveValue("padding-bottom", 14, 10);
+  @include adaptiveValue("padding-left", 28, 20);
+  @include adaptiveValue("padding-right", 28, 20);
+  @include adaptiveValue("font-size", 14, 12);
+
+  &:focus {
+    outline: none;
+  }
+
+  // Primary modifier - dark navy background
+  &--primary {
+    background: $navyDark;
+    color: $white;
+    border-color: $navyDark;
+
+    &:hover:not(.button--disabled) {
+      background: $navyLight;
+      border-color: $navyLight;
+      transform: translateY(to-rem(-2));
+      box-shadow: 0 to-rem(4) to-rem(12) rgba($navyDark, 0.3);
+    }
+
+    &:active:not(.button--disabled) {
+      transform: translateY(0);
+    }
+  }
+
+  // Outline modifier - transparent with border
+  &--outline {
+    background: transparent;
+    color: $navyDark;
+    border-color: $navyDark;
+
+    &:hover:not(.button--disabled) {
+      background: $navyDark;
+      color: $white;
+      transform: translateY(to-rem(-2));
+      box-shadow: 0 to-rem(4) to-rem(12) rgba($navyDark, 0.3);
+    }
+
+    &:active:not(.button--disabled) {
+      transform: translateY(0);
+    }
+  }
+
+  // White modifier - white background
+  &--white {
+    background: $white;
+    color: $navyDark;
+    border-color: $white;
+
+    &:hover:not(.button--disabled) {
+      background: $grayLight;
+      border-color: $grayLight;
+      transform: translateY(to-rem(-2));
+      box-shadow: 0 to-rem(4) to-rem(12) rgba($white, 0.5);
+    }
+
+    &:active:not(.button--disabled) {
+      transform: translateY(0);
+    }
+  }
+
+  // Full width modifier
+  &--full-width {
+    width: 100%;
+  }
+
+  // Disabled state
+  &--disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    pointer-events: none;
+  }
+}

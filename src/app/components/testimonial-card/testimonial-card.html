@@ -1,0 +1,17 @@
+<article class="testimonial-card">
+  <p class="testimonial-card__text">{{ text() }}</p>
+
+  <div class="testimonial-card__author">
+    <img
+      [src]="avatarUrl()"
+      [alt]="avatarAlt() || name()"
+      class="testimonial-card__avatar"
+      loading="lazy"
+    />
+
+    <div class="testimonial-card__info">
+      <h4 class="testimonial-card__name">{{ name() }}</h4>
+      <p class="testimonial-card__position">{{ position() }}</p>
+    </div>
+  </div>
+</article>

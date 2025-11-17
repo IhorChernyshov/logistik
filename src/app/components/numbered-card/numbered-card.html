@@ -1,0 +1,16 @@
+<article class="numbered-card">
+  <div class="numbered-card__content">
+    <span class="numbered-card__number">{{ number() }}</span>
+
+    <div class="numbered-card__text">
+      <h3 class="numbered-card__title">{{ title() }}</h3>
+      <p class="numbered-card__description">{{ description() }}</p>
+
+      @if (showReadMore()) {
+        <a href="#" class="numbered-card__link">
+          <span class="numbered-card__link-text">Read in Full</span>
+        </a>
+      }
+    </div>
+  </div>
+</article>

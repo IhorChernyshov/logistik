@@ -1,0 +1,140 @@
+//<BUTTONS (a.btn+tab)>
+// Снипет (HTML): btn
+@use "../mixins";
+
+.button {
+  position: relative;
+  //display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 300;
+  border-radius: mixins.to-rem(50);
+  padding: mixins.to-rem(10) mixins.to-rem(10);
+  line-height: 156%;
+  //background-color: #fff;
+  //color: $goldColor;
+  &_dep{
+    @include mixins.adaptiveValue("padding-top", 10, 5, 479.98, 320);
+    @include mixins.adaptiveValue("padding-bottom", 10, 5, 479.98, 320);
+    @include mixins.adaptiveValue("padding-right", 20, 5, 479.98, 320);
+    @include mixins.adaptiveValue("padding-left", 20, 5, 479.98, 320);
+  }
+  &_wal{
+    @include mixins.adaptiveValue("padding-top", 10, 5, 558.98, 320);
+    @include mixins.adaptiveValue("padding-bottom", 10, 5, 558.98, 320);
+    @include mixins.adaptiveValue("padding-right", 20, 5, 558.98, 320);
+    @include mixins.adaptiveValue("padding-left", 20, 5, 558.98, 320);
+    @media (max-width: em(558.98)) {
+      padding: 10px;
+      width: 100%;
+    }
+  }
+  @media (any-hover: hover) {
+    &:hover {
+      //border: to-rem(1) solid transparent;
+      //color: $mainColor;
+
+      //&::before {
+      //  content: '';
+      //  opacity: 1;
+      //}
+    }
+  }
+
+  &._fw {
+    width: 100%;
+  }
+
+  &::before {
+    content: '';
+    position: absolute;
+    //width: 100%;
+    //height: 100%;
+    top: 0;
+    left: 0;
+    transition: opacity 0.3s;
+    //opacity: 0.5;
+    //background: url("../../../img/button-bg.jpg") center / cover no-repeat;
+  }
+
+  &_border {
+    background-color: transparent;
+    border: 1px solid $bgGold;
+    color: $bgGold;
+    transition: all 0.3s;
+
+    &::before {
+      content: '';
+      opacity: 0;
+    }
+
+    @media (any-hover: hover) {
+      &:hover {
+        border: to-rem(1) solid transparent;
+      }
+    }
+    .other {
+      @media (any-hover: none) {
+        color: #c1ab81;
+      }
+
+      &_white {
+        color: #efe9dd;
+        @media (any-hover: hover) {
+          &:hover {
+            color: $mainColor;
+          }
+        }
+      }
+    }
+  }
+
+
+&_display-none{
+  background-color: transparent;
+  border: 1px solid $bgGold;
+  color: $bgGold;
+  transition: all 0.3s;
+
+  &::before {
+    content: '';
+    opacity: 0;
+  }
+
+  @media (any-hover: hover) {
+    &:hover {
+      border: to-rem(1) solid transparent;
+    }
+  }
+  .other {
+    @media (any-hover: none) {
+      color: #c1ab81;
+    }
+
+    &_white {
+      color: #efe9dd;
+      @media (any-hover: hover) {
+        &:hover {
+          color: $mainColor;
+        }
+      }
+    }
+  }
+
+  @media (max-width: $mobile) {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+
+  span {
+    position: relative;
+    @media (any-hover: none){
+      color:$mainColor;
+    }
+
+  }
+}
+

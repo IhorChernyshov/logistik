@@ -1,0 +1,73 @@
+@use '../../../assets/style/base/mixins' as *;
+@use '../../../assets/style/base/shared' as *;
+
+.job-card {
+  display: flex;
+  flex-direction: column;
+  background: $navyDark;
+  border-radius: to-rem(12);
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+  &:hover {
+    transform: translateY(to-rem(-8));
+    box-shadow: 0 to-rem(12) to-rem(24) rgba($navyDark, 0.4);
+  }
+
+  &__image-wrapper {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    @include adaptiveValue("height", 200, 160);
+
+    &::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(to bottom, transparent 0%, rgba($navyDark, 0.3) 100%);
+      pointer-events: none;
+    }
+  }
+
+  &__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.3s ease;
+  }
+
+  &:hover &__image {
+    transform: scale(1.05);
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    @include adaptiveValue("padding-top", 24, 20);
+    @include adaptiveValue("padding-bottom", 24, 20);
+    @include adaptiveValue("padding-left", 20, 16);
+    @include adaptiveValue("padding-right", 20, 16);
+    @include adaptiveValue("gap", 12, 10);
+  }
+
+  &__title {
+    font-family: $PM;
+    font-weight: 600;
+    color: $white;
+    line-height: 1.3;
+    margin: 0;
+    @include adaptiveValue("font-size", 20, 18);
+  }
+
+  &__description {
+    font-family: $PR;
+    color: rgba($white, 0.85);
+    line-height: 1.6;
+    margin: 0;
+    @include adaptiveValue("font-size", 14, 13);
+  }
+}

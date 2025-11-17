@@ -1,0 +1,49 @@
+@use '../../../assets/style/base/mixins' as *;
+@use '../../../assets/style/base/shared' as *;
+
+.icon-feature {
+  display: flex;
+  align-items: flex-start;
+  @include adaptiveValue("gap", 20, 16);
+  @include adaptiveValue("margin-bottom", 32, 24);
+
+  &__icon {
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: $grayLight;
+    border-radius: to-rem(8);
+    @include adaptiveValue("width", 60, 50);
+    @include adaptiveValue("height", 60, 50);
+
+    i {
+      color: $navyDark;
+      @include adaptiveValue("font-size", 28, 24);
+    }
+  }
+
+  &__content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    @include adaptiveValue("gap", 8, 6);
+  }
+
+  &__title {
+    font-family: $PM;
+    font-weight: 600;
+    color: $textDark;
+    line-height: 1.3;
+    margin: 0;
+    @include adaptiveValue("font-size", 18, 16);
+  }
+
+  &__description {
+    font-family: $PR;
+    color: $textGray;
+    line-height: 1.6;
+    margin: 0;
+    @include adaptiveValue("font-size", 14, 13);
+  }
+}

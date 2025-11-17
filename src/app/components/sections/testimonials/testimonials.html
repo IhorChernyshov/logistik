@@ -1,0 +1,36 @@
+<section id="testimonials" class="testimonials">
+  <div class="testimonials__container">
+    <header class="testimonials__header" appScrollAnimate>
+      <h2 class="testimonials__title">{{ title() }}</h2>
+    </header>
+
+    <div class="testimonials__content">
+      <div class="testimonials__photo-wrapper" appScrollAnimate>
+        @if (photoUrl()) {
+          <img
+            [src]="photoUrl()"
+            [alt]="photoAlt()"
+            class="testimonials__photo"
+            loading="lazy"
+          />
+        } @else {
+          <div class="testimonials__photo-placeholder">
+            <i class="fa-solid fa-users testimonials__photo-icon"></i>
+          </div>
+        }
+      </div>
+
+      <div class="testimonials__cards" appScrollAnimate>
+        @for (testimonial of testimonials(); track testimonial.name) {
+          <app-testimonial-card
+            [text]="testimonial.text"
+            [name]="testimonial.name"
+            [position]="testimonial.position"
+            [avatarUrl]="testimonial.avatarUrl || 'https://via.placeholder.com/50'"
+            [avatarAlt]="testimonial.name"
+          />
+        }
+      </div>
+    </div>
+  </div>
+</section>

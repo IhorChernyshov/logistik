@@ -1,0 +1,12 @@
+<button
+  type="button"
+  class="button"
+  [class.button--primary]="type() === 'primary'"
+  [class.button--outline]="type() === 'outline'"
+  [class.button--white]="type() === 'white'"
+  [class.button--full-width]="fullWidth()"
+  [class.button--disabled]="disabled()"
+  [disabled]="disabled()"
+  (click)="handleClick()">
+  {{ text() }}
+</button>

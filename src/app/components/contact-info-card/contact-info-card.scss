@@ -1,0 +1,83 @@
+@use '../../../assets/style/base/mixins' as *;
+@use '../../../assets/style/base/shared' as *;
+
+.contact-info-card {
+  display: flex;
+  align-items: center;
+  background: $white;
+  border: to-rem(1) solid rgba($navyDark, 0.1);
+  border-radius: to-rem(8);
+  transition: all 0.3s ease;
+  @include adaptiveValue("padding-top", 20, 16);
+  @include adaptiveValue("padding-bottom", 20, 16);
+  @include adaptiveValue("padding-left", 20, 16);
+  @include adaptiveValue("padding-right", 20, 16);
+  @include adaptiveValue("gap", 16, 12);
+
+  &:hover {
+    border-color: rgba($navyDark, 0.3);
+    box-shadow: 0 to-rem(4) to-rem(12) rgba($navyDark, 0.1);
+  }
+
+  &__icon-wrapper {
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: $grayLight;
+    border-radius: to-rem(8);
+    @include adaptiveValue("width", 48, 40);
+    @include adaptiveValue("height", 48, 40);
+  }
+
+  &__icon {
+    color: $navyDark;
+    @include adaptiveValue("font-size", 20, 18);
+  }
+
+  &__content {
+    flex: 1;
+    min-width: 0;
+  }
+
+  &__text {
+    font-family: $PR;
+    color: $textDark;
+    line-height: 1.5;
+    margin: 0;
+    word-break: break-word;
+    @include adaptiveValue("font-size", 14, 13);
+  }
+
+  &__copy-btn {
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: transparent;
+    border: to-rem(1) solid rgba($navyDark, 0.2);
+    border-radius: to-rem(6);
+    color: $navyDark;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    @include adaptiveValue("width", 36, 32);
+    @include adaptiveValue("height", 36, 32);
+
+    i {
+      @include adaptiveValue("font-size", 16, 14);
+    }
+
+    &:hover:not(&--copied) {
+      background: $navyDark;
+      border-color: $navyDark;
+      color: $white;
+    }
+
+    &--copied {
+      background: #50c878;
+      border-color: #50c878;
+      color: $white;
+      pointer-events: none;
+    }
+  }
+}
