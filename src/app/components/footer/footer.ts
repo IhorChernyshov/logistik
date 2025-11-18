@@ -31,37 +31,36 @@ export class FooterComponent {
     {
       title: 'Quick Links',
       links: [
-        { label: 'Home', href: '#' },
-        { label: 'Team', href: '#team' },
-        { label: 'Security', href: '#security' },
+        { label: 'Warum wir', href: '#why-choose' },
       ],
     },
     {
       title: 'Resources',
       links: [
-        { label: 'Team', href: '#team' },
-        { label: 'Compliance & Security', href: '#security' },
-        { label: 'Whitepaper', href: '#whitepaper' },
+        { label: 'Arbeitgeber', href: '#employer' },
       ],
     },
     {
       title: 'News',
       links: [
-        { label: 'Blog', href: '#blog' },
+        { label: 'Stellenangebote', href: '#jobs' },
       ],
     },
     {
       title: 'Support',
       links: [
-        { label: 'FAQ', href: '#faq' },
-      ],
-    },
-    {
-      title: 'Company',
-      links: [
-        { label: 'Privacy Terms', href: '#privacy' },
-        { label: 'Terms & Conditions', href: '#terms' },
+        { label: 'Bewertungen', href: '#testimonials' },
       ],
     },
   ]);
+
+  // Handles footer link click with smooth scroll
+  onLinkClick(event: Event, href: string): void {
+    event.preventDefault();
+
+    const element = document.querySelector(href);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  }
 }

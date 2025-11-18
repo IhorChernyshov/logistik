@@ -73,10 +73,12 @@
       transition: opacity 0.25s ease;
     }
 
-    i {
+    &-check {
       color: #50c878;
       position: absolute;
-      @include adaptiveValue("font-size", 22, 20);
+      font-weight: bold;
+      line-height: 1;
+      @include adaptiveValue("font-size", 24, 22);
     }
 
     &:hover:not(&--copied) {

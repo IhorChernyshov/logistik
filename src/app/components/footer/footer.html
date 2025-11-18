@@ -8,11 +8,17 @@
       <div class="footer__columns">
         @for (column of columns(); track column.title) {
           <div class="footer__column">
-            <h4 class="footer__column-title">{{ column.title }}</h4>
+<!--            <h4 class="footer__column-title">{{ column.title }}</h4>-->
             <ul class="footer__links">
               @for (link of column.links; track link.href) {
                 <li class="footer__link-item">
-                  <a [href]="link.href" class="footer__link">{{ link.label }}</a>
+                  <a
+                    [href]="link.href"
+                    class="footer__column-title"
+                    (click)="onLinkClick($event, link.href)"
+                  >
+                    {{ link.label }}
+                  </a>
                 </li>
               }
             </ul>
