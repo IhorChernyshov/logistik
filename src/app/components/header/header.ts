@@ -1,5 +1,5 @@
-import { Component, signal } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { Component, signal, HostListener, OnInit, AfterViewInit, PLATFORM_ID, inject } from '@angular/core';
+import { CommonModule, isPlatformBrowser } from '@angular/common';
 import { ButtonComponent } from '../button/button';
 
 // Navigation link interface
@@ -14,15 +14,25 @@ interface NavLink {
   templateUrl: './header.html',
   styleUrl: './header.scss',
 })
-export class HeaderComponent {
+export class HeaderComponent implements OnInit, AfterViewInit {
+  private readonly platformId = inject(PLATFORM_ID);
+  readonly isBrowser: boolean = isPlatformBrowser(this.platformId);
+
   // Mobile menu open state
   mobileMenuOpen = signal<boolean>(false);
 
+  // Header hidden state - true when scrolling down
+  isHeaderHidden = signal<boolean>(false);
+
+  // Previous scroll position for direction detection
+  private lastScrollTop = 0;
+
   // Navigation links array
   navLinks = signal<NavLink[]>([
-    { label: 'Über uns', href: '#about' },
+    { label: 'Warum wir', href: '#why-choose' },
+    { label: 'Arbeitgeber', href: '#employer' },
     { label: 'Stellenangebote', href: '#jobs' },
-    { label: 'Kontakte', href: '#contact' },
+    { label: 'Bewertungen', href: '#testimonials' },
   ]);
 
   // Toggles mobile menu visibility
@@ -53,5 +63,49 @@ export class HeaderComponent {
     if (contactSection) {
       contactSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
+  }
+
+  // Gets current scroll position
+  private getScrollTop(): number {
+    if (!this.isBrowser) return 0;
+    return window.pageYOffset || document.documentElement?.scrollTop || document.body?.scrollTop || 0;
+  }
+
+  // Window scroll listener - detects scroll direction and hides/shows header
+  @HostListener('window:scroll')
+  onWindowScroll(): void {
+    if (!this.isBrowser) return;
+
+    const currentScrollTop = this.getScrollTop();
+
+    // Don't hide header if we're at the top
+    if (currentScrollTop <= 100) {
+      this.isHeaderHidden.set(false);
+      this.lastScrollTop = currentScrollTop;
+      return;
+    }
+
+    // Scrolling down - hide header
+    if (currentScrollTop > this.lastScrollTop) {
+      this.isHeaderHidden.set(true);
+    }
+    // Scrolling up - show header
+    else {
+      this.isHeaderHidden.set(false);
+    }
+
+    this.lastScrollTop = currentScrollTop;
+  }
+
+  // Lifecycle hook - initialize on component load
+  ngOnInit(): void {
+    if (!this.isBrowser) return;
+    this.lastScrollTop = this.getScrollTop();
+  }
+
+  // Lifecycle hook - check scroll position after view init
+  ngAfterViewInit(): void {
+    if (!this.isBrowser) return;
+    this.lastScrollTop = this.getScrollTop();
   }
 }

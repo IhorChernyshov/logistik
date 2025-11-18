@@ -1,23 +1,23 @@
 <section id="testimonials" class="testimonials">
   <div class="testimonials__container">
-    <header class="testimonials__header" appScrollAnimate>
-      <h2 class="testimonials__title">{{ title() }}</h2>
-    </header>
-
     <div class="testimonials__content">
-      <div class="testimonials__photo-wrapper" appScrollAnimate>
-        @if (photoUrl()) {
-          <img
-            [src]="photoUrl()"
-            [alt]="photoAlt()"
-            class="testimonials__photo"
-            loading="lazy"
-          />
-        } @else {
-          <div class="testimonials__photo-placeholder">
-            <i class="fa-solid fa-users testimonials__photo-icon"></i>
-          </div>
-        }
+      <div class="testimonials__left" appScrollAnimate>
+        <h2 class="testimonials__title">{{ title() }}</h2>
+
+        <div class="testimonials__photo-wrapper">
+          @if (photoUrl()) {
+            <img
+              [src]="photoUrl()"
+              [alt]="photoAlt()"
+              class="testimonials__photo"
+              loading="lazy"
+            />
+          } @else {
+            <div class="testimonials__photo-placeholder">
+              <i class="fa-solid fa-users testimonials__photo-icon"></i>
+            </div>
+          }
+        </div>
       </div>
 
       <div class="testimonials__cards" appScrollAnimate>

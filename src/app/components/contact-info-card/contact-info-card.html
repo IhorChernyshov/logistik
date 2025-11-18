@@ -1,23 +1,25 @@
 <article class="contact-info-card">
-  <div class="contact-info-card__icon-wrapper">
-    <img [src]="getIconUrl()" [alt]="type()" class="contact-info-card__icon-img">
-  </div>
+  <header class="contact-info-card__header">
+    <img [src]="getIconUrl()" [alt]="type()" class="contact-info-card__icon">
+  </header>
+
+  <div class="contact-info-card__divider"></div>
 
   <div class="contact-info-card__content">
-    <p class="contact-info-card__text">{{ info() }}</p>
+    <p class="contact-info-card__text" [innerHTML]="getFormattedInfo()"></p>
+    <button
+      type="button"
+      class="contact-info-card__copy"
+      [class.contact-info-card__copy--copied]="copied()"
+      (click)="copyToClipboard()"
+      [title]="copied() ? 'Copied!' : 'Copy to clipboard'"
+      aria-label="Copy to clipboard"
+    >
+      @if (copied()) {
+        <i class="fa-solid fa-check"></i>
+      } @else {
+        <img src="/icons/copy.svg" alt="Copy" class="contact-info-card__copy-icon">
+      }
+    </button>
   </div>
-
-  <button
-    type="button"
-    class="contact-info-card__copy-btn"
-    [class.contact-info-card__copy-btn--copied]="copied()"
-    (click)="copyToClipboard()"
-    [title]="copied() ? 'Copied!' : 'Copy to clipboard'"
-  >
-    @if (copied()) {
-      <i class="fa-solid fa-check"></i>
-    } @else {
-      <img src="/icons/copy.svg" alt="Copy" class="contact-info-card__copy-icon">
-    }
-  </button>
 </article>

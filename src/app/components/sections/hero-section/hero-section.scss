@@ -60,6 +60,7 @@
   }
 
   &__cta {
+    border: to-rem(1) solid #FFFFFF;
     @include adaptiveValue("margin-top", 16, 12);
   }
 }

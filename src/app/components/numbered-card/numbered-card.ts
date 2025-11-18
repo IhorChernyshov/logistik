@@ -19,4 +19,7 @@ export class NumberedCardComponent {
 
   // Show "Read in Full" link flag
   showReadMore = input<boolean>(true);
+
+  // Active state for number highlighting
+  isActive = input<boolean>(false);
 }

@@ -14,7 +14,8 @@ export class HeroSectionComponent {
   title = input<string>('Beste Logistik & Verpackungsfirma 2025');
 
   // Hero subtitle text
-  subtitle = input<string>('Infinity Logistik & Verpackung – Zuverlässigkeit und Qualität bei jeder Lieferung');
+  subtitle = input<string>('Infinity Logistik & Verpackung GmbH steht für klare Prozesse, hohe Qualitätsstandards und eine verantwortungsvolle Mitarbeiterführung.\n' +
+    'Als direkter deutscher Arbeitgeber bieten wir stabile Arbeitsbedingungen, transparente Regeln und langfristige Perspektiven.');
 
   // CTA button text
   ctaText = input<string>('Los geht\'s');

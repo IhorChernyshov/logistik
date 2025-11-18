@@ -82,7 +82,8 @@
   }
 
   &__link {
-    font-family: $PR;
+    font-family: $RM;
+    font-weight: 500;
     color: rgba($white, 0.7);
     text-decoration: none;
     transition: color 0.3s ease;
@@ -100,7 +101,8 @@
   }
 
   &__copyright {
-    font-family: $PR;
+    font-family: $RM;
+    font-weight: 500;
     color: rgba($white, 0.6);
     text-align: center;
     margin: 0;

@@ -27,12 +27,12 @@ export class DirectEmployerComponent {
   photoDescription = signal<string>('Alle Bedingungen sind transparent und vertraglich klar geregelt. Wir garantieren ein stabiles Gehalt und unterstützen Sie in allen Phasen Ihrer Beschäftigung.');
 
   // Large warehouse photo URL
-  photoUrl = signal<string>('/images/contact.jpg');
+  photoUrl = signal<string>('/images/focus-on-job.jpg');
 
   // Features array
   features = signal<FeatureData[]>([
     {
-      iconUrl: '/icons/lift-car.svg',
+      iconUrl: '/icons/scan barcode.svg ',
       title: 'Lagerarbeiter',
       description: 'Annahme und Entladung von Waren. Sortierung, Etikettierung und Einlagerung im Lager. Kommissionierung und Vorbereitung von Bestellungen für den Versand.',
     },
@@ -42,7 +42,7 @@ export class DirectEmployerComponent {
       description: 'Lieferung von Waren und Materialien an die vorgesehenen Standorte. Kontrolle des technischen Zustands des Fahrzeugs. Betankung und kleinere Wartungsarbeiten. Verantwortung für die pünktliche und sichere Lieferung.',
     },
     {
-      iconUrl: '/icons/scan barcode.svg',
+      iconUrl: '/icons/lift-car.svg',
       title: 'Hilfsarbeiter',
       description: 'Ausführung einfacher Hilfstätigkeiten in Produktion, Lager oder Bau. Unterstützung von Facharbeitern bei verschiedenen Aufgaben. Tätigkeiten wie Tragen, Verpacken, Reinigen oder Vorbereiten von Materialien.',
     },

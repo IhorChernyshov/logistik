@@ -1,14 +1,14 @@
 <article class="icon-feature">
-  <div class="icon-feature__icon">
-    @if (iconUrl()) {
-      <img [src]="iconUrl()" [alt]="title()" class="icon-feature__icon-img">
-    } @else {
-      <i [class]="iconClass()"></i>
-    }
+  <div class="icon-feature__header">
+    <div class="icon-feature__icon">
+      @if (iconUrl()) {
+        <img [src]="iconUrl()" [alt]="title()" class="icon-feature__icon-img">
+      } @else {
+        <i [class]="iconClass()"></i>
+      }
+    </div>
+    <h3 class="icon-feature__title">{{ title() }}</h3>
   </div>
 
-  <div class="icon-feature__content">
-    <h3 class="icon-feature__title">{{ title() }}</h3>
-    <p class="icon-feature__description">{{ description() }}</p>
-  </div>
+  <p class="icon-feature__description">{{ description() }}</p>
 </article>

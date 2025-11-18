@@ -32,6 +32,14 @@ export class ContactInfoCardComponent {
 
   // Returns appropriate icon URL based on type
   getIconUrl(): string {
-    return this.type() === 'email' ? '/icons/mail.svg' : '/icons/geo.svg';
+    return this.type() === 'email' ? '/icons/mail.svg' : '/icons/add.svg';
+  }
+
+  // Returns formatted info with line breaks for location addresses
+  getFormattedInfo(): string {
+    if (this.type() === 'location') {
+      return this.info().replace(/\n/g, '<br>');
+    }
+    return this.info();
   }
 }

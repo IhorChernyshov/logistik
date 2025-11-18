@@ -1,10 +1,11 @@
-<header class="header">
+<header class="header" [class.header--hidden]="isHeaderHidden()">
   <div class="header__container">
-    <a href="#" class="header__logo" (click)="onNavLinkClick($event, '#hero')">
-      <img src="/icons/logo.png" alt="Infinity Logistik & Verpackung" class="header__logo-img">
-      <span class="header__logo-text">Infinity Logistik & Verpackung</span>
+    <!-- Company Title - Left -->
+    <a href="#" class="header__title" (click)="onNavLinkClick($event, '#hero')">
+      Infinity Logistik & Verpackung
     </a>
 
+    <!-- Navigation Links - Center -->
     <nav class="header__nav" [class.header__nav--open]="mobileMenuOpen()">
       <ul class="header__menu">
         @for (link of navLinks(); track link.href) {
@@ -20,7 +21,7 @@
         }
       </ul>
 
-      <div class="header__cta">
+      <div class="header__nav-cta">
         <app-button
           [text]="'Anfrage senden'"
           [type]="'outline'"
@@ -29,6 +30,16 @@
       </div>
     </nav>
 
+    <!-- CTA Button - Right -->
+    <div class="header__cta">
+      <app-button
+        [text]="'Anfrage senden'"
+        [type]="'outline'"
+        (clicked)="onCtaClick()"
+      />
+    </div>
+
+    <!-- Mobile Menu Burger -->
     <button
       type="button"
       class="header__burger"

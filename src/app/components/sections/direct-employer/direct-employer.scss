@@ -19,8 +19,8 @@
   }
 
   &__title {
-    font-family: $UB;
-    font-weight: 700;
+    font-family: $RB;
+    font-weight: 800;
     color: $textDark;
     line-height: 1.3;
     margin: 0;
@@ -29,12 +29,14 @@
   }
 
   &__description {
-    font-family: $PR;
+    font-family: $RM;
+    font-weight: 500;
     color: $textGray;
     line-height: 1.6;
     margin: 0 auto;
-    max-width: to-rem(800);
+    max-width: to-rem(1000);
     @include adaptiveValue("font-size", 16, 15);
+    @include adaptiveValue("margin-bottom", 160, 60);
   }
 
   &__content {
@@ -51,6 +53,8 @@
   &__features {
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
   }
 
   &__photo {
@@ -59,8 +63,8 @@
     border-radius: to-rem(12);
     overflow: hidden;
     display: flex;
-    align-items: center;
-    justify-content: center;
+    flex-direction: column;
+    @include adaptiveValue("padding", 30, 24);
     @include adaptiveValue("min-height", 500, 400);
 
     @media (max-width: to-rem(991.98)) {
@@ -72,29 +76,42 @@
     position: relative;
     z-index: 2;
     display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    @include adaptiveValue("padding", 40, 30);
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: to-rem(20);
+    @include adaptiveValue("margin-bottom", 24, 20);
   }
 
   &__photo-text {
-    font-family: $PR;
-    color: rgba($white, 0.95);
+    font-family: $RM;
+    font-weight: 500;
+    color: $white;
     line-height: 1.7;
     margin: 0;
-    max-width: to-rem(450);
+    flex: 1;
     @include adaptiveValue("font-size", 16, 15);
   }
 
+  &__photo-logo {
+    flex-shrink: 0;
+    width: to-rem(140);
+    height: to-rem(80);
+    object-fit: contain;
+  }
+
   &__photo-image {
-    position: absolute;
-    top: 0;
-    left: 0;
+    position: relative;
     width: 100%;
-    height: 100%;
-    object-fit: cover;
-    opacity: 0.3;
+    flex: 1;
+    border-radius: to-rem(8);
+    overflow: hidden;
     z-index: 1;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
   }
 }

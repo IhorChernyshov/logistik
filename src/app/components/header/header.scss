@@ -2,15 +2,21 @@
 @use '../../../assets/style/base/shared' as *;
 
 .header {
-  position: sticky;
+  position: fixed;
   top: 0;
   left: 0;
-  right: 0;
+  width: 100%;
+  z-index: 100;
   background: $navyDark;
   border-bottom: to-rem(1) solid rgba($white, 0.1);
-  z-index: 100;
+  transform: translateY(0);
+  transition: transform 0.3s ease-in-out;
   @include adaptiveValue("padding-top", 20, 16);
   @include adaptiveValue("padding-bottom", 20, 16);
+
+  &--hidden {
+    transform: translateY(-100%);
+  }
 
   &__container {
     max-width: to-rem(1440);
@@ -18,51 +24,53 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+    gap: to-rem(30);
     @include adaptiveValue("padding-left", 40, 20);
     @include adaptiveValue("padding-right", 40, 20);
   }
 
-  &__logo {
-    text-decoration: none;
-    display: flex;
-    align-items: center;
-    gap: to-rem(12);
-    z-index: 102;
-  }
-
-  &__logo-img {
-    height: to-rem(40);
-    width: auto;
-    object-fit: contain;
-
-    @media (max-width: to-rem(480)) {
-      height: to-rem(32);
-    }
-  }
-
-  &__logo-text {
+  &__title {
     font-family: $RB;
     font-weight: 700;
     color: $white;
+    text-decoration: none;
     white-space: nowrap;
+    transition: color 0.3s ease;
+    flex-shrink: 0;
     @include adaptiveValue("font-size", 20, 16);
 
+    &:hover {
+      color: rgba($white, 0.8);
+    }
+
+    @media (max-width: to-rem(1200)) {
+      order: 2;
+      flex: 1;
+      text-align: center;
+    }
+
+    @media (max-width: to-rem(885)) {
+      flex: 0;
+    }
+
     @media (max-width: to-rem(480)) {
-      max-width: to-rem(180);
-      white-space: normal;
+      font-size: to-rem(16);
+      white-space: nowrap;
       line-height: 1.2;
+      @include adaptiveValue("font-size", 16, 15);
     }
   }
 
   &__nav {
     display: flex;
     align-items: center;
-    @include adaptiveValue("gap", 40, 24);
+    justify-content: center;
+    flex: 1;
 
-    @media (max-width: to-rem(991.98)) {
+    @media (max-width: to-rem(1200)) {
       position: fixed;
       top: 0;
-      right: -100%;
+      left: -100%;
       width: 100%;
       max-width: to-rem(400);
       height: 100vh;
@@ -70,13 +78,22 @@
       flex-direction: column;
       justify-content: center;
       align-items: center;
-      transition: right 0.3s ease;
+      transition: left 0.3s ease;
       z-index: 101;
-      box-shadow: to-rem(-4) 0 to-rem(20) rgba(0, 0, 0, 0.3);
+      box-shadow: to-rem(4) 0 to-rem(20) rgba(0, 0, 0, 0.3);
+      @include adaptiveValue("gap", 32, 24);
     }
 
     &--open {
-      right: 0;
+      left: 0;
+    }
+
+    &-cta {
+      display: none;
+
+      @media (max-width: to-rem(885)) {
+        display: block;
+      }
     }
   }
 
@@ -88,7 +105,7 @@
     padding: 0;
     @include adaptiveValue("gap", 32, 24);
 
-    @media (max-width: to-rem(991.98)) {
+    @media (max-width: to-rem(1200)) {
       flex-direction: column;
       gap: to-rem(24);
     }
@@ -126,14 +143,23 @@
       }
     }
 
-    @media (max-width: to-rem(991.98)) {
+    @media (max-width: to-rem(1200)) {
       font-size: to-rem(18);
     }
   }
 
   &__cta {
-    @media (max-width: to-rem(991.98)) {
-      margin-top: to-rem(20);
+    display: flex;
+    justify-content: flex-end;
+    flex-shrink: 0;
+
+    @media (max-width: to-rem(1200)) {
+      order: 3;
+      flex: 1;
+    }
+
+    @media (max-width: to-rem(885)) {
+      display: none;
     }
   }
 
@@ -148,13 +174,17 @@
     cursor: pointer;
     padding: 0;
     z-index: 102;
+    flex-shrink: 0;
 
-    @media (max-width: to-rem(991.98)) {
+    @media (max-width: to-rem(1200)) {
       display: flex;
+      order: 1;
+      flex: 1;
     }
 
     &-line {
       width: 100%;
+      max-width: to-rem(28);
       height: to-rem(2);
       background: $white;
       transition: all 0.3s ease;

@@ -19,14 +19,21 @@
       <div class="direct-employer__photo" appScrollAnimate>
         <div class="direct-employer__photo-content">
           <p class="direct-employer__photo-text">{{ photoDescription() }}</p>
-        </div>
-        @if (photoUrl()) {
           <img
-            [src]="photoUrl()"
-            alt="Warehouse"
-            class="direct-employer__photo-image"
+            src="/icons/logo.png"
+            alt="Infinity Logistik Logo"
+            class="direct-employer__photo-logo"
             loading="lazy"
           />
+        </div>
+        @if (photoUrl()) {
+          <div class="direct-employer__photo-image">
+            <img
+              [src]="photoUrl()"
+              alt="Warehouse"
+              loading="lazy"
+            />
+          </div>
         }
       </div>
     </div>

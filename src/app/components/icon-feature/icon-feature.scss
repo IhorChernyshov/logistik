@@ -3,17 +3,21 @@
 
 .icon-feature {
   display: flex;
-  align-items: flex-start;
-  @include adaptiveValue("gap", 20, 16);
+  flex-direction: column;
   @include adaptiveValue("margin-bottom", 32, 24);
+
+  &__header {
+    display: flex;
+    align-items: center;
+    @include adaptiveValue("gap", 16, 12);
+    @include adaptiveValue("margin-bottom", 8, 6);
+  }
 
   &__icon {
     flex-shrink: 0;
     display: flex;
     align-items: center;
     justify-content: center;
-    background: $grayLight;
-    border-radius: to-rem(8);
     @include adaptiveValue("width", 60, 50);
     @include adaptiveValue("height", 60, 50);
 
@@ -24,16 +28,9 @@
   }
 
   &__icon-img {
-    width: 70%;
-    height: 70%;
+    width: 100%;
+    height: 100%;
     object-fit: contain;
-  }
-
-  &__content {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    @include adaptiveValue("gap", 8, 6);
   }
 
   &__title {
@@ -42,14 +39,16 @@
     color: $textDark;
     line-height: 1.3;
     margin: 0;
-    @include adaptiveValue("font-size", 18, 16);
+    @include adaptiveValue("font-size", 20, 16);
   }
 
   &__description {
-    font-family: $PR;
+    font-family: $RM;
+    font-weight: 500;
     color: $textGray;
-    line-height: 1.6;
+    line-height: to-rem(23);
     margin: 0;
-    @include adaptiveValue("font-size", 14, 13);
+    max-width: to-rem(530);
+    @include adaptiveValue("font-size", 16, 15);
   }
 }

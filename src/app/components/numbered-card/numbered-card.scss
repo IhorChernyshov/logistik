@@ -4,20 +4,23 @@
 .numbered-card {
   display: flex;
   flex-direction: column;
-  @include adaptiveValue("margin-bottom", 40, 30);
+  @include adaptiveValue("margin-bottom", 60, 30);
 
   &__content {
     display: flex;
-    align-items: flex-start;
+    //align-items: flex-start;
+    justify-content: flex-end;
     @include adaptiveValue("gap", 24, 20);
   }
 
   &__number {
     flex-shrink: 0;
-    font-family: $UB;
-    font-weight: 700;
-    color: $numberGray;
+    font-family: $MExt;
+    font-weight: 800;
+    color: rgba(14, 41, 63, 0.5);
     line-height: 1;
+    min-width: to-rem(75);
+    transition: all 0.4s ease-in-out;
     @include adaptiveValue("font-size", 80, 60);
   }
 
@@ -25,6 +28,7 @@
     flex: 1;
     display: flex;
     flex-direction: column;
+    max-width: to-rem(524);
     @include adaptiveValue("gap", 12, 10);
   }
 
@@ -38,7 +42,8 @@
   }
 
   &__description {
-    font-family: $PR;
+    font-family: $RM;
+    font-weight: 500;
     color: $textGray;
     line-height: 1.6;
     margin: 0;
@@ -78,5 +83,13 @@
 
   &__link-text {
     position: relative;
+  }
+
+  // Active state with highlighted number
+  &--active {
+    .numbered-card__number {
+      color: rgba(14, 41, 63, 1);
+      transform: scale(1.05);
+    }
   }
 }

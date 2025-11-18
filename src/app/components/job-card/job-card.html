@@ -1,4 +1,9 @@
 <article class="job-card">
+  <div class="job-card__content">
+    <h3 class="job-card__title">{{ title() }}</h3>
+    <p class="job-card__description">{{ description() }}</p>
+  </div>
+
   <div class="job-card__image-wrapper">
     <img
       [src]="imageUrl()"
@@ -6,10 +11,5 @@
       class="job-card__image"
       loading="lazy"
     />
-  </div>
-
-  <div class="job-card__content">
-    <h3 class="job-card__title">{{ title() }}</h3>
-    <p class="job-card__description">{{ description() }}</p>
   </div>
 </article>

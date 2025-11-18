@@ -1,20 +1,33 @@
 <section id="why-choose" class="why-choose-us">
   <div class="why-choose-us__container">
-    <header class="why-choose-us__header" appScrollAnimate>
-      <h2 class="why-choose-us__title">{{ title() }}</h2>
-      <p class="why-choose-us__subtitle">{{ subtitle() }}</p>
-    </header>
-
-    <div class="why-choose-us__cards">
-      @for (card of cards(); track card.number) {
-        <div appScrollAnimate>
-          <app-numbered-card
-            [number]="card.number"
-            [title]="card.title"
-            [description]="card.description"
-          />
+    <div class="why-choose-us__layout">
+      <!-- Left column with sticky title -->
+      <aside class="why-choose-us__sidebar">
+        <div class="why-choose-us__sticky-wrapper">
+          <h2 class="why-choose-us__title" [innerHTML]="title()"></h2>
         </div>
-      }
+      </aside>
+
+      <!-- Right column with cards -->
+      <div class="why-choose-us__content">
+        <div class="why-choose-us__cards">
+          @for (card of cards(); track card.number) {
+            <div
+              class="why-choose-us__card-wrapper"
+              [attr.data-card-id]="card.number"
+              #cardElement
+            >
+              <app-numbered-card
+                [number]="card.number"
+                [title]="card.title"
+                [description]="card.description"
+                [isActive]="activeCardNumber() === card.number"
+                [showReadMore]="true"
+              />
+            </div>
+          }
+        </div>
+      </div>
     </div>
   </div>
 </section>

@@ -33,7 +33,7 @@
     &:hover:not(.button--disabled) {
       background: $navyLight;
       border-color: $navyLight;
-      transform: translateY(to-rem(-2));
+      //transform: translateY(to-rem(-2));
       box-shadow: 0 to-rem(4) to-rem(12) rgba($navyDark, 0.3);
     }
 

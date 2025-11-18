@@ -2,97 +2,93 @@
 @use '../../../assets/style/base/shared' as *;
 
 .contact-info-card {
+  background: #e0e0e0;
+  border: to-rem(2) solid #0E293F;
+  border-radius: to-rem(14);
   display: flex;
-  align-items: center;
-  background: $white;
-  border: to-rem(1) solid rgba($navyDark, 0.1);
-  border-radius: to-rem(8);
-  transition: all 0.3s ease;
-  @include adaptiveValue("padding-top", 20, 16);
-  @include adaptiveValue("padding-bottom", 20, 16);
-  @include adaptiveValue("padding-left", 20, 16);
-  @include adaptiveValue("padding-right", 20, 16);
-  @include adaptiveValue("gap", 16, 12);
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  font-family: "Raleway", sans-serif;
+  position: relative;
+  @include adaptiveValue("padding-top", 24, 20);
+  @include adaptiveValue("padding-bottom", 24, 20);
+  @include adaptiveValue("padding-left", 28, 20);
+  @include adaptiveValue("padding-right", 28, 20);
+  @include adaptiveValue("gap", 18, 14);
 
-  &:hover {
-    border-color: rgba($navyDark, 0.3);
-    box-shadow: 0 to-rem(4) to-rem(12) rgba($navyDark, 0.1);
-  }
-
-  &__icon-wrapper {
-    flex-shrink: 0;
+  &__header {
     display: flex;
     align-items: center;
-    justify-content: center;
-    background: $grayLight;
-    border-radius: to-rem(8);
-    @include adaptiveValue("width", 48, 40);
-    @include adaptiveValue("height", 48, 40);
   }
 
   &__icon {
-    color: $navyDark;
-    @include adaptiveValue("font-size", 20, 18);
+    @include adaptiveValue("width", 34, 28);
+    @include adaptiveValue("height", 34, 28);
   }
 
-  &__icon-img {
-    width: 60%;
-    height: 60%;
-    object-fit: contain;
+  &__divider {
+    width: 100%;
+    height: to-rem(1.8);
+    background: #0E293F;
+    opacity: 0.5;
   }
 
   &__content {
-    flex: 1;
-    min-width: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    @include adaptiveValue("gap", 14, 10);
   }
 
   &__text {
-    font-family: $PR;
-    color: $textDark;
-    line-height: 1.5;
+    font-weight: 500;
+    line-height: 1.45;
+    color: #0E293F;
     margin: 0;
-    word-break: break-word;
-    @include adaptiveValue("font-size", 14, 13);
+    flex: 1;
+    @include adaptiveValue("font-size", 18, 16);
   }
 
-  &__copy-btn {
+  &__copy {
     flex-shrink: 0;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
     display: flex;
     align-items: center;
     justify-content: center;
-    background: transparent;
-    border: to-rem(1) solid rgba($navyDark, 0.2);
-    border-radius: to-rem(6);
-    color: $navyDark;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    @include adaptiveValue("width", 36, 32);
-    @include adaptiveValue("height", 36, 32);
-
-    i {
-      @include adaptiveValue("font-size", 16, 14);
-    }
+    opacity: 0.8;
+    transition: opacity 0.25s ease;
+    position: relative;
+    @include adaptiveValue("width", 22, 20);
+    @include adaptiveValue("height", 22, 20);
+    @include adaptiveValue("margin-left", 14, 10);
 
     img {
-      @include adaptiveValue("width", 16, 14);
-      @include adaptiveValue("height", 16, 14);
+      width: 100%;
+      height: 100%;
       object-fit: contain;
+      transition: opacity 0.25s ease;
+    }
+
+    i {
+      color: #50c878;
+      position: absolute;
+      @include adaptiveValue("font-size", 22, 20);
     }
 
     &:hover:not(&--copied) {
-      img {
-        filter: brightness(0) invert(1);
-      }
-      background: $navyDark;
-      border-color: $navyDark;
-      color: $white;
+      opacity: 1;
     }
 
     &--copied {
-      background: #50c878;
-      border-color: #50c878;
-      color: $white;
       pointer-events: none;
+
+      img {
+        opacity: 0;
+      }
     }
   }
 }
