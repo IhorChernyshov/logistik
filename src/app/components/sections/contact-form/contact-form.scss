@@ -3,8 +3,8 @@
 
 .contact-form {
   background: $grayLight;
-  @include adaptiveValue("padding-top", 80, 60);
-  @include adaptiveValue("padding-bottom", 80, 60);
+  @include adaptiveValue("padding-top", 80, 50);
+  @include adaptiveValue("padding-bottom", 80, 50);
 
   &__container {
     max-width: to-rem(800);
@@ -24,7 +24,7 @@
     color: $textDark;
     line-height: 1.3;
     margin: 0;
-    @include adaptiveValue("font-size", 42, 32);
+    @include adaptiveValue("font-size", 42, 26);
     @include adaptiveValue("margin-bottom", 16, 12);
   }
 

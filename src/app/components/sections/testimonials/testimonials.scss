@@ -3,8 +3,8 @@
 
 .testimonials {
   background: $white;
-  @include adaptiveValue("padding-top", 120, 60);
-  @include adaptiveValue("padding-bottom", 80, 60);
+  @include adaptiveValue("padding-top", 100, 50);
+  @include adaptiveValue("padding-bottom", 80, 50);
 
   &__container {
     max-width: to-rem(1440);
@@ -15,10 +15,14 @@
 
   &__content {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 600px 1fr;
     align-items: start;
     @include adaptiveValue("gap", 40, 30);
 
+    @media (max-width: em(1389.98)) {
+      grid-template-columns: 1fr;
+      @include adaptiveValue("gap", 30, 20);
+    }
     @media (max-width: to-rem(1099.98)) {
       grid-template-columns: 1fr;
     }
@@ -40,8 +44,27 @@
     color: $textDark;
     line-height: 1.3;
     margin: 0;
-    @include adaptiveValue("font-size", 42, 32);
+    @include adaptiveValue("font-size", 42, 26);
     @include adaptiveValue("margin-bottom", 50, 40);
+
+    @media (max-width: em(1389.98)) {
+      @include adaptiveValue("margin-bottom", 20, 16);
+    }
+  }
+
+  &__description {
+    font-family: $RM;
+    font-weight: 500;
+    color: $textGray;
+    line-height: 1.6;
+    margin: 0;
+    display: none;
+    @include adaptiveValue("font-size", 16, 15);
+    @include adaptiveValue("margin-bottom", 30, 24);
+
+    @media (max-width: em(1389.98)) {
+      display: block;
+    }
   }
 
   &__photo-wrapper {
@@ -49,12 +72,14 @@
     border-radius: to-rem(16);
     overflow: hidden;
     display: flex;
-    justify-content: center;
+    @media (max-width: em(1389.98)) {
+      display: none;
+    }
   }
 
   &__photo {
     width: 100%;
-    max-width: to-rem(700);
+    max-width: to-rem(600);
     border-radius: to-rem(16);
     object-fit: cover;
     display: block;

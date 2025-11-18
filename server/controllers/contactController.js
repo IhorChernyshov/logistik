@@ -34,7 +34,7 @@ const sendContactEmail = async (req, res) => {
         <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
           <h2 style="color: #0F3854;">Neue Kontaktanfrage</h2>
 
-          <div style="background-color: #f5f5f5; padding: 20px; border-radius: 8px; margin: 20px 0;">
+          <div style="background-color: #F3F2F2; padding: 20px; border-radius: 8px; margin: 20px 0;">
             <p style="margin: 10px 0;"><strong>Name:</strong> ${name}</p>
             <p style="margin: 10px 0;"><strong>E-Mail:</strong> ${email}</p>
           </div>

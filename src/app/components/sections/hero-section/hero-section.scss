@@ -6,8 +6,8 @@
   width: 100%;
   min-height: 100vh;
   display: flex;
-  align-items: center;
-  justify-content: center;
+  align-items: flex-end;
+  justify-content: flex-start;
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -25,12 +25,13 @@
 
   &__container {
     position: relative;
-    max-width: to-rem(1440);
+    max-width: 95%;
     margin: 0 auto;
     width: 100%;
     z-index: 2;
     @include adaptiveValue("padding-left", 40, 20);
     @include adaptiveValue("padding-right", 40, 20);
+    @include adaptiveValue("padding-bottom", 120, 80);
   }
 
   &__content {

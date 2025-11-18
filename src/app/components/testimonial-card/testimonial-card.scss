@@ -1,6 +1,54 @@
 @use '../../../assets/style/base/mixins' as *;
 @use '../../../assets/style/base/shared' as *;
 
+:host {
+  display: block;
+}
+
+// Когда карточки в 2 колонки (grid 2x2): 1-я и 4-я темные
+@media (min-width: to-rem(900)) {
+  :host:nth-child(1),
+  :host:nth-child(4) {
+    .testimonial-card {
+      background: #0E293F;
+    }
+
+    .testimonial-card__text {
+      color: rgba($white, 0.9);
+    }
+
+    .testimonial-card__name {
+      color: $white;
+    }
+
+    .testimonial-card__position {
+      color: rgba($white, 0.7);
+    }
+  }
+}
+
+// Когда карточки в 1 колонку: 1-я и 3-я темные
+@media (max-width: to-rem(899.98)) {
+  :host:nth-child(1),
+  :host:nth-child(3) {
+    .testimonial-card {
+      background: #0E293F;
+    }
+
+    .testimonial-card__text {
+      color: rgba($white, 0.9);
+    }
+
+    .testimonial-card__name {
+      color: $white;
+    }
+
+    .testimonial-card__position {
+      color: rgba($white, 0.7);
+    }
+  }
+}
+
 .testimonial-card {
   display: flex;
   flex-direction: column;
@@ -28,9 +76,9 @@
 
   &__avatar {
     flex-shrink: 0;
-    width: to-rem(42);
-    height: to-rem(42);
-    border-radius: 50%;
+    width: to-rem(55);
+    height: to-rem(55);
+    border-radius: to-rem(10);
     object-fit: cover;
   }
 

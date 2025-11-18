@@ -27,6 +27,8 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin-bottom: to-rem(50);
+    @include adaptiveValue("margin-bottom", 50, 10);
   }
 
   &__logo {
@@ -63,8 +65,8 @@
   }
 
   &__column-title {
-    font-family: $PM;
-    font-weight: 600;
+    font-family: $RM;
+    //font-weight: 400;
     color: $white;
     margin: 0;
     text-decoration: none;

@@ -37,12 +37,26 @@ export class HeaderComponent implements OnInit, AfterViewInit {
 
   // Toggles mobile menu visibility
   toggleMobileMenu(): void {
-    this.mobileMenuOpen.set(!this.mobileMenuOpen());
+    const newState = !this.mobileMenuOpen();
+    this.mobileMenuOpen.set(newState);
+    this.toggleBodyScroll(newState);
   }
 
   // Closes mobile menu
   closeMobileMenu(): void {
     this.mobileMenuOpen.set(false);
+    this.toggleBodyScroll(false);
+  }
+
+  // Toggles body scroll - prevents scrolling when menu is open
+  private toggleBodyScroll(menuOpen: boolean): void {
+    if (!this.isBrowser) return;
+
+    if (menuOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
   }
 
   // Handles navigation link click

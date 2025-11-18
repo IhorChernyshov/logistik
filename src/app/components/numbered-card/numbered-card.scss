@@ -1,10 +1,13 @@
 @use '../../../assets/style/base/mixins' as *;
 @use '../../../assets/style/base/shared' as *;
 
+:host {
+  display: block;
+}
+
 .numbered-card {
   display: flex;
   flex-direction: column;
-  @include adaptiveValue("margin-bottom", 60, 30);
 
   &__content {
     display: flex;
@@ -22,6 +25,7 @@
     min-width: to-rem(75);
     transition: all 0.4s ease-in-out;
     @include adaptiveValue("font-size", 80, 60);
+    @include adaptiveValue("min-width", 75, 27);
   }
 
   &__text {

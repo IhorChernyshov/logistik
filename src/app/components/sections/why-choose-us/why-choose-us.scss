@@ -3,8 +3,8 @@
 
 .why-choose-us {
   background: $white;
-  @include adaptiveValue("padding-top", 100, 60);
-  @include adaptiveValue("padding-bottom", 100, 60);
+  @include adaptiveValue("padding-top", 100, 50);
+  @include adaptiveValue("padding-bottom", 100, 50);
 
   &__container {
     max-width: to-rem(1700);
@@ -18,9 +18,10 @@
     justify-content: space-between;
     width: 100%;
 
-    @media (max-width: em(991.98)) {
+    @media (max-width: to-rem(1500)) {
       flex-direction: column;
-      gap: to-rem(40);
+      align-items: center;
+      @include adaptiveValue("gap", 60, 40);
     }
   }
 
@@ -28,7 +29,7 @@
     flex-shrink: 0;
     width: auto;
 
-    @media (max-width: em(991.98)) {
+    @media (max-width: to-rem(1500)) {
       width: 100%;
     }
   }
@@ -39,7 +40,7 @@
     //top: to-rem(120);
     top: 43%;
 
-    @media (max-width: em(991.98)) {
+    @media (max-width: to-rem(1500)) {
       position: static;
     }
   }
@@ -51,9 +52,9 @@
     line-height: 1.2;
     margin: 0;
     white-space: normal;
-    @include adaptiveValue("font-size", 48, 32);
+    @include adaptiveValue("font-size", 48, 26);
 
-    @media (max-width: em(991.98)) {
+    @media (max-width: to-rem(1500)) {
       text-align: center;
     }
   }
@@ -62,7 +63,7 @@
     flex-shrink: 0;
     max-width: to-rem(800);
 
-    @media (max-width: em(991.98)) {
+    @media (max-width: to-rem(1500)) {
       max-width: 100%;
     }
   }
@@ -77,5 +78,9 @@
     width: 100%;
     display: flex;
     flex-direction: column;
+
+    &:not(:last-child) {
+      @include adaptiveValue("margin-bottom", 60, 30);
+    }
   }
 }

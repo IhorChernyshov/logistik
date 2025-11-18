@@ -21,6 +21,9 @@ export class TestimonialsComponent {
   // Section title
   title = signal<string>('Feedback unserer Kunden');
 
+  // Section description
+  description = signal<string>('Unsere Kunden schätzen unsere Zuverlässigkeit, Qualität und persönliche Betreuung. Hier finden Sie einige echte Rückmeldungen von Menschen, die bereits mit uns zusammengearbeitet haben.');
+
   // Large photo URL
   photoUrl = signal<string>('/images/contact.jpg');
 
@@ -30,28 +33,28 @@ export class TestimonialsComponent {
   // Testimonials array
   testimonials = signal<TestimonialData[]>([
     {
-      text: '„Ich bin ohne Erfahrung gekommen und wurde direkt vor Ort eingearbeitet. Die Arbeit ist körperlich nicht schwer und die Bezahlung ist fair. Es gibt manchmal stressige Tage, aber insgesamt bin ich zufrieden. Wichtig ist, dass Stabilität und eine offizielle Anstellung geboten werden."',
+      text: 'Ich bin ohne Erfahrung gekommen und wurde direkt vor Ort eingearbeitet. Die Arbeit ist körperlich nicht schwer und die Bezahlung ist fair. Es gibt manchmal stressige Tage, aber insgesamt bin ich zufrieden. Wichtig ist, dass Stabilität und eine offizielle Anstellung geboten werden.',
       name: 'Oleg',
       position: 'Hilfsarbeiter',
-      avatarUrl: 'https://ui-avatars.com/api/?name=Oleg&size=100&background=0E293F&color=fff',
+      avatarUrl: '/avatars/oleg.png',
     },
     {
       text: 'Ich arbeite seit einem halben Jahr im Unternehmen. Der Lohn wird immer pünktlich gezahlt, die Arbeitsbedingungen sind gut und das Team ist freundlich. Die Geschäftsleitung unterstützt uns und hilft bei neuen Aufgaben. Ich fühle mich hier sicher und habe Vertrauen in meine Arbeit.',
       name: 'Hanna',
       position: 'Lagerarbeiterin',
-      avatarUrl: 'https://ui-avatars.com/api/?name=Hanna&size=100&background=0E293F&color=fff',
+      avatarUrl: '/avatars/hanna.png',
     },
     {
       text: 'Die Zusammenarbeit mit diesem Logistikunternehmen war äußerst zuverlässig. Alle Lieferungen kamen pünktlich und in einwandfreiem Zustand an. Besonders schätze ich die klare Kommunikation und die flexible Anpassung an unsere Bedürfnisse.',
       name: 'Thomas M.',
       position: 'Unternehmer',
-      avatarUrl: 'https://ui-avatars.com/api/?name=Thomas+M&size=100&background=0E293F&color=fff',
+      avatarUrl: '/avatars/Thomas.png',
     },
     {
       text: 'Ich nutze regelmäßig die Verpackungs- und Versandservices. Die Ware wird sorgfältig behandelt und sicher verpackt, was meinen Kunden sehr wichtig ist. Dank der professionellen Arbeit konnte ich mein Geschäft deutlich effizienter gestalten.',
       name: 'Sabine K.',
       position: 'Online-Shop-Betreiberin',
-      avatarUrl: 'https://ui-avatars.com/api/?name=Sabine+K&size=100&background=0E293F&color=fff',
+      avatarUrl: '/avatars/sabine.png',
     },
   ]);
 }
