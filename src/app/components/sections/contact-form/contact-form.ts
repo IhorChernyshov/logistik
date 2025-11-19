@@ -116,8 +116,8 @@ export class ContactFormComponent implements OnInit {
       message: this.contactForm.value.message
     };
 
-    // Sends HTTP POST request to backend API
-    this.http.post(`${environment.apiUrl}/api/v1/users/contact`, contactData).subscribe({
+    // Sends HTTP POST request to Cloudflare Worker API
+    this.http.post(environment.apiUrl, contactData).subscribe({
       next: (response: any) => {
         this.isSubmitting.set(false);
         this.contactForm.reset();

@@ -1,5 +1,5 @@
 // Development environment configuration
 export const environment = {
   production: false,
-  apiUrl: '' // Empty string uses proxy.conf.js for local development
+  apiUrl: 'https://email-api.infinitylogisticverpackung.workers.dev' // Cloudflare Worker for email sending
 };

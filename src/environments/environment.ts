@@ -1,5 +1,5 @@
 // Production environment configuration
 export const environment = {
   production: true,
-  apiUrl: 'web-production-dbe6.up.railway.app' // Railway backend with CORS
+  apiUrl: 'https://email-api.infinitylogisticverpackung.workers.dev' // Cloudflare Worker for email sending
 };
