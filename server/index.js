@@ -33,8 +33,24 @@ app.use((err, req, res, next) => {
   });
 });
 
+// Test SMTP connection on startup
+const { createTransporter } = require('./config/email');
+const testSMTPConnection = async () => {
+  console.log('🔍 Testing SMTP connection...');
+  try {
+    const transporter = createTransporter();
+    await transporter.verify();
+    console.log('✅ SMTP connection successful!');
+  } catch (error) {
+    console.error('❌ SMTP connection FAILED:', error.message);
+    console.error('   Code:', error.code);
+    console.error('   Command:', error.command);
+  }
+};
+
 // Start server
-app.listen(PORT, () => {
+app.listen(PORT, async () => {
   console.log(`✅ Server is running on http://localhost:${PORT}`);
   console.log(`📧 SMTP configured with ${process.env.SMTP_HOST}:${process.env.SMTP_PORT}`);
+  await testSMTPConnection();
 });
