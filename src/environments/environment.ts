@@ -1,5 +1,5 @@
 // Production environment configuration
 export const environment = {
   production: true,
-  apiUrl: 'https://email-api.infinitylogisticverpackung.workers.dev' // Cloudflare Worker for email sending
+  apiUrl: 'https://infinity-logisticverpackung.de/api/contact' // Cloudflare Worker for email sending
 };
