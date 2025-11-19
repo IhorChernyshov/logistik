@@ -1,7 +1,7 @@
 <section id="testimonials" class="testimonials">
   <div class="testimonials__container">
     <div class="testimonials__content">
-      <div class="testimonials__left" appScrollAnimate>
+      <div class="testimonials__left" appScrollAnimate animationClass="animate-slide-in-left">
         <h2 class="testimonials__title">{{ title() }}</h2>
 
         <p class="testimonials__description">{{ description() }}</p>
@@ -22,7 +22,7 @@
         </div>
       </div>
 
-      <div class="testimonials__cards" appScrollAnimate>
+      <div class="testimonials__cards" appScrollAnimate animationClass="animate-slide-in-right">
         @for (testimonial of testimonials(); track testimonial.name) {
           <app-testimonial-card
             [text]="testimonial.text"

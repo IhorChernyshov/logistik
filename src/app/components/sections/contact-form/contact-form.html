@@ -1,11 +1,11 @@
 <section id="contact" class="contact-form">
   <div class="contact-form__container">
-    <header class="contact-form__header" appScrollAnimate>
+    <header class="contact-form__header" appScrollAnimate animationClass="animate-slide-up">
       <h2 class="contact-form__title">{{ title() }}</h2>
       <p class="contact-form__description">{{ description() }}</p>
     </header>
 
-    <form class="contact-form__form" [formGroup]="contactForm" (ngSubmit)="onSubmit()" appScrollAnimate>
+    <form class="contact-form__form" [formGroup]="contactForm" (ngSubmit)="onSubmit()" appScrollAnimate animationClass="animate-scale-in" [animationDelay]="200">
       <div class="contact-form__fields">
         <div class="form-group">
           <label for="name" class="form-group__label">Name</label>

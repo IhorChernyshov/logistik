@@ -1,11 +1,11 @@
 <section id="jobs" class="career-development">
   <div class="career-development__container">
-    <header class="career-development__header" appScrollAnimate>
+    <header class="career-development__header" appScrollAnimate animationClass="animate-slide-up">
       <h2 class="career-development__title">{{ title() }}</h2>
       <p class="career-development__description">{{ description() }}</p>
     </header>
 
-    <div class="career-development__grid" appScrollAnimate>
+    <div class="career-development__grid" appScrollAnimate animationClass="animate-scale-in" [animationDelay]="200">
       @for (job of jobs(); track job.title) {
         <app-job-card
           [title]="job.title"

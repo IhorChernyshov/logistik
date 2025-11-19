@@ -1,10 +1,10 @@
 <section id="contact-details" class="contact-details">
   <div class="contact-details__container">
-    <header class="contact-details__header" appScrollAnimate>
+    <header class="contact-details__header" appScrollAnimate animationClass="animate-slide-up">
       <h2 class="contact-details__title">{{ title() }}</h2>
     </header>
 
-    <div class="contact-details__cards" appScrollAnimate>
+    <div class="contact-details__cards" appScrollAnimate animationClass="animate-slide-up" [animationDelay]="200">
       <app-contact-info-card
         [type]="'email'"
         [info]="email()"

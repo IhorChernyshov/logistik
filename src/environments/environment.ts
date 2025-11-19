@@ -1,5 +1,5 @@
 // Production environment configuration
 export const environment = {
   production: true,
-  apiUrl: 'https://web-production-dbe6.up.railway.app'
+  apiUrl: '' // Empty string for same-origin requests (uses Cloudflare Worker proxy)
 };
