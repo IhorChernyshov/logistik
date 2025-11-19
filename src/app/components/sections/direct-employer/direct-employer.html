@@ -1,12 +1,12 @@
 <section id="employer" class="direct-employer">
   <div class="direct-employer__container">
-    <header class="direct-employer__header" appScrollAnimate>
+    <header class="direct-employer__header" appScrollAnimate animationClass="animate-slide-up">
       <h2 class="direct-employer__title">{{ title() }}</h2>
       <p class="direct-employer__description">{{ description() }}</p>
     </header>
 
     <div class="direct-employer__content">
-      <div class="direct-employer__features" appScrollAnimate>
+      <div class="direct-employer__features" appScrollAnimate animationClass="animate-slide-in-left">
         @for (feature of features(); track feature.title) {
           <app-icon-feature
             [iconUrl]="feature.iconUrl"
@@ -16,7 +16,7 @@
         }
       </div>
 
-      <div class="direct-employer__photo" appScrollAnimate>
+      <div class="direct-employer__photo" appScrollAnimate animationClass="animate-slide-in-right">
         <div class="direct-employer__photo-content">
           <p class="direct-employer__photo-text">{{ photoDescription() }}</p>
           <img

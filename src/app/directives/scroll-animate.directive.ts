@@ -1,13 +1,14 @@
-import {Directive, ElementRef, Input, OnDestroy, OnInit, Renderer2} from '@angular/core';
+import {Directive, ElementRef, input, OnDestroy, OnInit, Renderer2} from '@angular/core';
 
 @Directive({
   selector: '[appScrollAnimate]',
   standalone: true
 })
 export class ScrollAnimateDirective implements OnInit, OnDestroy {
-  @Input() animationClass = 'animate';
-  @Input() animationDelay = 100;
-  @Input() threshold = 0.5;
+  // Signal-based inputs for Angular 20+
+  animationClass = input<string>('animate');
+  animationDelay = input<number>(100);
+  threshold = input<number>(0.3);
 
   private observer: IntersectionObserver | null = null;
   private timeoutId: number | null = null;
@@ -16,13 +17,14 @@ export class ScrollAnimateDirective implements OnInit, OnDestroy {
   constructor(private el: ElementRef, private renderer: Renderer2) {}
 
   ngOnInit() {
-    // Add initial classes
+    // Add initial classes for animation setup
     this.renderer.addClass(this.el.nativeElement, 'animated-element');
 
+    // Configure IntersectionObserver options with threshold from input signal
     const options = {
       root: null,
       rootMargin: '0px',
-      threshold: this.threshold
+      threshold: this.threshold()
     };
 
     this.observer = new IntersectionObserver(entries => {
@@ -39,18 +41,21 @@ export class ScrollAnimateDirective implements OnInit, OnDestroy {
 
 
 
+  // Animate element when it enters viewport
   private animateElement() {
     if (this.timeoutId !== null) return;
     this.timeoutId = window.setTimeout(() => {
-      this.renderer.addClass(this.el.nativeElement, this.animationClass);
+      // Apply animation class from input signal to trigger CSS animation
+      this.renderer.addClass(this.el.nativeElement, this.animationClass());
       this.hasAnimated = true;
 
+      // Disconnect observer after animation to prevent re-triggering
       if (this.observer) {
         this.observer.unobserve(this.el.nativeElement);
       }
 
       this.clearTimeout();
-    }, this.animationDelay);
+    }, this.animationDelay());
   }
 
   private clearTimeout() {

@@ -1,0 +1,187 @@
+// Scroll animations for IntersectionObserver
+// Used with ScrollAnimateDirective
+
+// Base class added by the directive to all animated elements
+// Sets initial invisible state before animation
+.animated-element {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+
+  // Override for scale animations to prevent transform conflict
+  &.animate-scale-in {
+    transform: scale(0.8);
+  }
+}
+
+// Default animation class - fade in with slide up
+// Applied when element becomes visible in viewport
+.animate {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+// ========== Keyframe Definitions ==========
+
+// Fade in animation - opacity change only
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+// Slide up animation - element moves from bottom
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+// Slide from left animation
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+// Slide from right animation
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+// Scale in animation - element grows from center
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+// Rotate in animation - element rotates while appearing
+@keyframes rotateIn {
+  from {
+    opacity: 0;
+    transform: rotate(-10deg) scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: rotate(0) scale(1);
+  }
+}
+
+// Bounce in animation - element bounces when appearing
+@keyframes bounceIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.3);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.05);
+  }
+  70% {
+    transform: scale(0.9);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+// ========== Animation Classes ==========
+
+// Fade in animation class
+.animate-fade-in {
+  animation: fadeIn 0.6s ease-out forwards;
+}
+
+// Slide up animation class
+.animate-slide-up {
+  animation: slideUp 0.6s ease-out forwards;
+}
+
+// Slide from left animation class
+.animate-slide-in-left {
+  animation: slideInLeft 0.6s ease-out forwards;
+}
+
+// Slide from right animation class
+.animate-slide-in-right {
+  animation: slideInRight 0.6s ease-out forwards;
+}
+
+// Scale in animation class
+.animate-scale-in {
+  animation: scaleIn 0.6s ease-out forwards;
+}
+
+// Rotate in animation class
+.animate-rotate-in {
+  animation: rotateIn 0.6s ease-out forwards;
+}
+
+// Bounce in animation class
+.animate-bounce-in {
+  animation: bounceIn 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55) forwards;
+}
+
+// ========== Animation Delays ==========
+// Used for staggered animations of multiple elements
+
+.animate-delay-1 {
+  animation-delay: 0.1s;
+}
+
+.animate-delay-2 {
+  animation-delay: 0.2s;
+}
+
+.animate-delay-3 {
+  animation-delay: 0.3s;
+}
+
+.animate-delay-4 {
+  animation-delay: 0.4s;
+}
+
+.animate-delay-5 {
+  animation-delay: 0.5s;
+}
+
+// ========== Animation Durations ==========
+// Override default 0.6s duration
+
+.animate-fast {
+  animation-duration: 0.3s;
+}
+
+.animate-slow {
+  animation-duration: 1s;
+}
+
+.animate-slower {
+  animation-duration: 1.5s;
+}

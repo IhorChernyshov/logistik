@@ -4,6 +4,7 @@
 @use "./fonts";
 @use "./icons";
 @use "./null";
+@use "./animations";
 
 // Ширина ограничивающего контейнера (0 = нет ограничения)
 $maxWidthContainer: 1572;

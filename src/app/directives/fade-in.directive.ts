@@ -2,7 +2,8 @@ import { AfterViewInit, Directive, ElementRef } from '@angular/core';
 import { animate, AnimationBuilder, AnimationPlayer, style } from '@angular/animations';
 
 @Directive({
-  selector: '[appFadeIn]'
+  selector: '[appFadeIn]',
+  standalone: true
 })
 export class FadeInDirective implements AfterViewInit {
   private player!: AnimationPlayer;
