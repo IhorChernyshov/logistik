@@ -26,27 +26,23 @@ const sendContactEmail = async (req, res) => {
 
     // Email content configuration
     const mailOptions = {
-      from: `"${name}" <${process.env.SMTP_USER}>`,
+      from: `"Infinity Logistik Support" <${process.env.SMTP_USER}>`,
       to: process.env.RECIPIENT_EMAIL,
       replyTo: email,
-      subject: `Neue Kontaktanfrage von ${name} - Infinity Logistik`,
+      subject: `Neue Kontaktanfrage von ${name}`,
       html: `
-        <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
-          <h2 style="color: #0F3854;">Neue Kontaktanfrage</h2>
+        <div style="font-family: Arial, sans-serif;">
+          <h2 style="color: #0F3854; margin: 0 0 20px 0;">Neue Kontaktanfrage</h2>
 
-          <div style="background-color: #F3F2F2; padding: 20px; border-radius: 8px; margin: 20px 0;">
-            <p style="margin: 10px 0;"><strong>Name:</strong> ${name}</p>
-            <p style="margin: 10px 0;"><strong>E-Mail:</strong> ${email}</p>
-          </div>
+          <p style="margin: 5px 0;"><strong>Name:</strong> ${name}</p>
+          <p style="margin: 5px 0;"><strong>E-Mail:</strong> ${email}</p>
 
-          <div style="margin: 20px 0;">
-            <h3 style="color: #0F3854;">Nachricht:</h3>
-            <p style="line-height: 1.6; white-space: pre-wrap;">${message}</p>
-          </div>
+          <h3 style="color: #0F3854; margin: 20px 0 10px 0;">Nachricht:</h3>
+          <p style="line-height: 1.6; white-space: pre-wrap; margin: 0;">${message}</p>
 
-          <hr style="border: 1px solid #e0e0e0; margin: 30px 0;">
+          <hr style="border: none; border-top: 1px solid #e0e0e0; margin: 30px 0;">
 
-          <p style="color: #666; font-size: 12px;">
+          <p style="color: #666; font-size: 12px; margin: 0;">
             Diese Nachricht wurde über das Kontaktformular der Website Infinity Logistik & Verpackung gesendet.
           </p>
         </div>
