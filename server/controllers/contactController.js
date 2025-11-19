@@ -4,10 +4,12 @@ const { createTransporter } = require('../config/email');
 // Handles contact form submission and sends email via SMTP
 const sendContactEmail = async (req, res) => {
   try {
+    console.log('📧 Received contact form submission:', req.body);
     const { name, email, message } = req.body;
 
     // Validate request body
     if (!name || !email || !message) {
+      console.log('❌ Validation failed - missing fields:', { name: !!name, email: !!email, message: !!message });
       return res.status(400).json({
         message: 'Bitte füllen Sie alle Felder aus (Name, E-Mail, Nachricht)'
       });
