@@ -3,6 +3,7 @@ import { AbstractControl, FormBuilder, FormGroup, ReactiveFormsModule, Validator
 import { CommonModule } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
 import { ScrollAnimateDirective } from '../../../directives/scroll-animate.directive';
+import { environment } from '../../../../environments/environment';
 
 @Component({
   selector: 'app-contact-form',
@@ -116,7 +117,7 @@ export class ContactFormComponent implements OnInit {
     };
 
     // Sends HTTP POST request to backend API
-    this.http.post('/api/v1/users/contact', contactData).subscribe({
+    this.http.post(`${environment.apiUrl}/api/v1/users/contact`, contactData).subscribe({
       next: (response: any) => {
         this.isSubmitting.set(false);
         this.contactForm.reset();

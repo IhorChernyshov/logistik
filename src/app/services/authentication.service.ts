@@ -2,6 +2,7 @@ import { inject, Injectable, signal } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { map, Observable } from 'rxjs';
+import { environment } from '../../environments/environment';
 // import { TokenPayload } from '../../../../src/interfaces/TokenPayload';
 // import { Token } from '../../../../src/interfaces/Token';
 // import { UserInterface } from '../../../../src/interfaces/UserInterface';
@@ -143,7 +144,7 @@ export class AuthenticationService {
         tokenPayload?: Token,
     ): Observable<T> {
         const headers = { Authorization: `Bearer ${this.token()}` };
-        const url = `/api/v1/users/${endpoint}`;
+        const url = `${environment.apiUrl}/api/v1/users/${endpoint}`;
 
         let request$: Observable<any>;
 
