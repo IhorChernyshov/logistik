@@ -20,7 +20,7 @@
           />
           @if (f['name'].invalid && f['name'].touched) {
             <div class="form-group__error">
-              <span class="form-group__error-text">{{ getNameErrorMessage(inputName.value?.length || 0) }}</span>
+              <span class="form-group__error-text">{{ getNameErrorMessage(inputName.value.length || 0) }}</span>
             </div>
           }
         </div>
@@ -39,7 +39,7 @@
           />
           @if (f['email'].invalid && f['email'].touched) {
             <div class="form-group__error">
-              <span class="form-group__error-text">{{ getEmailErrorMessage(inputEmail.value?.length || 0) }}</span>
+              <span class="form-group__error-text">{{ getEmailErrorMessage(inputEmail.value.length || 0) }}</span>
             </div>
           }
         </div>
@@ -58,7 +58,7 @@
         ></textarea>
         @if (f['message'].invalid && f['message'].touched) {
           <div class="form-group__error">
-            <span class="form-group__error-text">{{ getMessageErrorMessage(inputMessage.value?.length || 0) }}</span>
+            <span class="form-group__error-text">{{ getMessageErrorMessage(inputMessage.value.length || 0) }}</span>
           </div>
         }
       </div>
