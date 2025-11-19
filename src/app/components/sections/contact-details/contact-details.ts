@@ -14,7 +14,7 @@ export class ContactDetailsComponent {
   title = signal<string>('Details Information');
 
   // Company email address
-  email = signal<string>('Infinity.Logistik.Verpackung-gmbh@protonmail.com');
+  email = signal<string>('info@infinity-logisticverpackung.de');
 
   // Company physical address
   address = signal<string>('Infinity Logistik & Verpackung GmbH\nRobert-Bunsen-Straße 7\nD-79108 Freiburg im Breisgau\nGermany');
