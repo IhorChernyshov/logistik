@@ -12,6 +12,11 @@
   background-position: center;
   background-repeat: no-repeat;
 
+  // Move background image to the right on mobile devices
+  @media (max-width: to-rem(1380.98)) {
+    background-position: right center;
+  }
+
   &__overlay {
     position: absolute;
     top: 0;
@@ -48,7 +53,7 @@
     color: $white;
     line-height: 1.2;
     margin: 0;
-    @include adaptiveValue("font-size", 56, 36);
+    @include adaptiveValue("font-size", 56, 28);
   }
 
   &__subtitle {
@@ -57,7 +62,7 @@
     color: rgba($white, 0.9);
     line-height: 1.6;
     margin: 0;
-    @include adaptiveValue("font-size", 18, 16);
+    @include adaptiveValue("font-size", 18, 14);
   }
 
   &__cta {

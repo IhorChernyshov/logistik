@@ -8,7 +8,7 @@ export class ScrollAnimateDirective implements OnInit, OnDestroy {
   // Signal-based inputs for Angular 20+
   animationClass = input<string>('animate');
   animationDelay = input<number>(100);
-  threshold = input<number>(0.5);
+  threshold = input<number>(0.3);
 
   private observer: IntersectionObserver | null = null;
   private timeoutId: number | null = null;
