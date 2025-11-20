@@ -34,9 +34,9 @@ export class TestimonialsComponent {
   testimonials = signal<TestimonialData[]>([
     {
       text: 'Ich bin ohne Erfahrung gekommen und wurde direkt vor Ort eingearbeitet. Die Arbeit ist körperlich nicht schwer und die Bezahlung ist fair. Es gibt manchmal stressige Tage, aber insgesamt bin ich zufrieden. Wichtig ist, dass Stabilität und eine offizielle Anstellung geboten werden.',
-      name: 'Oleg',
+      name: 'Jamshid K.',
       position: 'Hilfsarbeiter',
-      avatarUrl: '/avatars/oleg.png',
+      avatarUrl: '/avatars/Jamshid K.JPG',
     },
     {
       text: 'Ich arbeite seit einem halben Jahr im Unternehmen. Der Lohn wird immer pünktlich gezahlt, die Arbeitsbedingungen sind gut und das Team ist freundlich. Die Geschäftsleitung unterstützt uns und hilft bei neuen Aufgaben. Ich fühle mich hier sicher und habe Vertrauen in meine Arbeit.',
@@ -46,9 +46,9 @@ export class TestimonialsComponent {
     },
     {
       text: 'Die Zusammenarbeit mit diesem Logistikunternehmen war äußerst zuverlässig. Alle Lieferungen kamen pünktlich und in einwandfreiem Zustand an. Besonders schätze ich die klare Kommunikation und die flexible Anpassung an unsere Bedürfnisse.',
-      name: 'Thomas M.',
+      name: 'Bahrom M.',
       position: 'Unternehmer',
-      avatarUrl: '/avatars/Thomas.png',
+      avatarUrl: '/avatars/Bahrom M.JPG',
     },
     {
       text: 'Ich nutze regelmäßig die Verpackungs- und Versandservices. Die Ware wird sorgfältig behandelt und sicher verpackt, was meinen Kunden sehr wichtig ist. Dank der professionellen Arbeit konnte ich mein Geschäft deutlich effizienter gestalten.',

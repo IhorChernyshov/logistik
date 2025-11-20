@@ -21,7 +21,7 @@ export class HeroSectionComponent {
   ctaText = input<string>('Los geht\'s');
 
   // Background image URL
-  backgroundImage = input<string>('/images/hero.png');
+  backgroundImage = input<string>('/images/hero.jpg');
 
   // Handles CTA button click
   onCtaClick(): void {
