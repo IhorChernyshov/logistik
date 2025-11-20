@@ -52,7 +52,7 @@ export class TestimonialsComponent {
     },
     {
       text: 'Ich nutze regelmäßig die Verpackungs- und Versandservices. Die Ware wird sorgfältig behandelt und sicher verpackt, was meinen Kunden sehr wichtig ist. Dank der professionellen Arbeit konnte ich mein Geschäft deutlich effizienter gestalten.',
-      name: 'Sabine K.',
+      name: 'Olga',
       position: 'Online-Shop-Betreiberin',
       avatarUrl: '/avatars/sabine.png',
     },
